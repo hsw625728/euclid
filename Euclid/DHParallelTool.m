@@ -23,15 +23,21 @@
 {
     self = [super init];
     if (self) {
+        /*
         _tooltipTempUnfinished = @"Drag to a point that the parallel line should pass through";
         _tooltipTempFinished = @"Release to create parallel line";
         _toolTipPartial = @"Tap a point that the parallel line should pass through";
+         */
+        _tooltipTempUnfinished = @"拖动到平行线即将经过的点。";
+        _tooltipTempFinished = @"释放手指创建这条平行线。";
+        _toolTipPartial = @"点击平行线即将经过的点。";
     }
     return self;
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap a line you wish to make a line parallel to";
+    //return @"Tap a line you wish to make a line parallel to";
+    return @"点击你希望创建平行线的线。";
 }
 - (void)touchBegan:(UITouch*)touch
 {

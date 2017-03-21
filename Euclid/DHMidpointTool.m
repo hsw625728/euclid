@@ -25,19 +25,26 @@
 {
     self = [super init];
     if (self) {
+        /*
         _temporaryTooltipUnfinished = @"Drag to a second point between which to create the midpoint";
         _temporaryTooltipFinished = @"Release to create midpoint";
         _partialTooltip = @"Tap on a second point, between which to create the midpoint";
+         */
+        _temporaryTooltipUnfinished = @"拖动到即将创建中点的第二个点。";
+        _temporaryTooltipFinished = @"释放手指来创建中点。";
+        _partialTooltip = @"点击第二个点，将创建第二个点和第一个点的终点。";
     }
     return self;
 }
 - (NSString*)initialToolTip
 {
     if (self.disableCircles) {
-        return @"Tap a line segment or two points two create a midpoint";
+        //return @"Tap a line segment or two points two create a midpoint";
+        return @"点击一条线段或者两个点来创建一个中点。";
     }
     
-    return @"Tap a line segment or two points two create a midpoint, or a circle to create a point at its center";
+    //return @"Tap a line segment or two points two create a midpoint, or a circle to create a point at its center";
+    return @"点击一条线段或者两个点来创建一个中点，或者点击一个圆来创建圆的圆心点。";
 }
 - (void)touchBegan:(UITouch*)touch
 {

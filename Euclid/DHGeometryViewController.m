@@ -53,7 +53,8 @@ static CGFloat const kACMagnifyingViewDefaultShowDelay = 0.5;
         twoFingers = YES;
         [self removeMagnifyingGlass];
         [_currentTool reset];
-        [_currentTool.delegate toolTipDidChange:@"Use two fingers to pan or zoom"];
+        //[_currentTool.delegate toolTipDidChange:@"Use two fingers to pan or zoom"];
+        [_currentTool.delegate toolTipDidChange:@"使用两根手指可以进行平移或缩放操作"];
     }
     else {
         twoFingers = NO;

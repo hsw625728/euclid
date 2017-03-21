@@ -91,12 +91,20 @@ static const NSUInteger kResetProgressAlertView = 1;
 
 - (IBAction)resetAllProgress:(id)sender
 {
+    /*
     NSString* resetMessage = @"Reset progress for all game modes and achievements";
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Reset progress"
                                                         message:resetMessage
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"Reset", nil];
+     */
+    NSString* resetMessage = @"即将重置所有挑战模式的进度、排行榜和成就，你确定要这么做吗？";
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"重置所有进度"
+                                                        message:resetMessage
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                              otherButtonTitles:@"重置", nil];
     alertView.tag = kResetProgressAlertView;
     [alertView show];
     

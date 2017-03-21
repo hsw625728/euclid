@@ -16,7 +16,8 @@
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap anywhere to create a new point, or hold down on an existing free (gray) point to move it";
+    //return @"Tap anywhere to create a new point, or hold down on an existing free (gray) point to move it";
+    return @"点击屏幕任何位置可以创建一个新的点，也可以按着一个已经存在的可移动点(灰色)，拖动手指移动它的位置。";
 }
 - (void)touchBegan:(UITouch*)touch
 {
@@ -36,7 +37,8 @@
                   [point class] == [DHPointWithBlockConstraint class]) ) {
         self.point = point;
         self.point.highlighted = YES;
-        [self.delegate toolTipDidChange:@"Move the point to the desired location and release"];
+        //[self.delegate toolTipDidChange:@"Move the point to the desired location and release"];
+        [self.delegate toolTipDidChange:@"移动点到目标位置并且松手"];
         [touch.view setNeedsDisplay];
     } else {
         // No moveable point found near touch point, create a new temporary point
@@ -77,7 +79,8 @@
         if (_temporaryPoint) {
             self.point = _temporaryPoint;
             [self.delegate addTemporaryGeometricObjects:@[_temporaryPoint]];
-            [self.delegate toolTipDidChange:@"Move the point to the desired location and release"];
+            //[self.delegate toolTipDidChange:@"Move the point to the desired location and release"];
+            [self.delegate toolTipDidChange:@"移动点到目标位置并且松手"];
             [touch.view setNeedsDisplay];
         }
     }

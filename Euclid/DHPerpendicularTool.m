@@ -23,15 +23,21 @@
 {
     self = [super init];
     if (self) {
+        /*
         _tooltipTempUnfinished = @"Drag to a point that the perpendicular line should pass through";
         _tooltipTempFinished = @"Release to create perpendicular line";
-        _toolTipPartial = @"Tap a point that the perpendicular line should pass through";
+         _toolTipPartial = @"Tap a point that the perpendicular line should pass through";
+         */
+        _tooltipTempUnfinished = @"拖动到垂线即将经过的点。";
+        _tooltipTempFinished = @"释放手指来创建这条垂线。";
+        _toolTipPartial = @"点击一个垂线即将经过的点。";
     }
     return self;
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap a line (segment) you wish to make a line perpendicular to";
+    //return @"Tap a line (segment) you wish to make a line perpendicular to";
+    return @"点击即将创建垂线的线（线段）。";
 }
 - (void)touchBegan:(UITouch*)touch
 {

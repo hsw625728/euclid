@@ -207,7 +207,8 @@
 - (void)showEndHintMessageInView:(UIView*)view
 {
     Message* message = [[Message alloc] initAtPoint:CGPointMake(0,0) addTo:view];
-    [message text:@"Tap anywhere to resume the game"];
+    //[message text:@"Tap anywhere to resume the game"];
+    [message text:@"点击屏幕任意位置返回挑战"];
     message.font = [UIFont systemFontOfSize:14.0];
     message.textAlignment = NSTextAlignmentCenter;
     [message positionFixed:CGPointMake(view.frame.size.width*0.5 - message.frame.size.width*0.5,

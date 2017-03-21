@@ -53,6 +53,7 @@
     self.gameMode4View.showPercentComplete = YES;
     self.gameMode5View.showPercentComplete = YES;
     
+    /*
     self.gameMode1View.title = @"Tutorial";
     self.gameMode2View.title = @"The Elements";
     self.gameMode3View.title = @"Perfectionist";
@@ -71,9 +72,29 @@
     self.gameMode4View.gameModeDescription = @"Take on the levels using only the primitive tools";
     self.gameMode5View.gameModeDescription = @"Limited to primitive tools and must use minimum number of moves";
     self.gameMode6View.gameModeDescription = @"Simply enjoy using all the available tools freely";
+    */
+    self.gameMode1View.title = @"新手教学";
+    self.gameMode2View.title = @"基本元素";
+    self.gameMode3View.title = @"完美主义";
+    self.gameMode4View.title = @"古希腊人";
+    self.gameMode5View.title = @"几何大师";
+    self.gameMode6View.title = @"自由演练";
+    
+    self.gameMode2View.difficultyDescription = @"一般";
+    self.gameMode3View.difficultyDescription = @"难";
+    self.gameMode4View.difficultyDescription = @"更难";
+    self.gameMode5View.difficultyDescription = @"极难";
+    
+    self.gameMode1View.gameModeDescription = @"学习最基本的操作方法";
+    self.gameMode2View.gameModeDescription = @"完成几何挑战同时解锁新工具";
+    self.gameMode3View.gameModeDescription = @"用最少的步骤完成指定挑战目标";
+    self.gameMode4View.gameModeDescription = @"使用最原始的工具完成指定挑战目标";
+    self.gameMode5View.gameModeDescription = @"使用最原始的工具并且用最少的步骤完成指定挑战目标";
+    self.gameMode6View.gameModeDescription = @"使用所有可用的工具自由发挥想象力";
     
     if (_iPhoneVersion) {
-        self.title = @"Euclid: The Game";
+        //self.title = @"Euclid: The Game";
+        self.title = @"几何大师";
     }
     
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-icon"] style:UIBarButtonItemStylePlain target:self action:@selector(showPopoverMenu:)];
@@ -281,7 +302,8 @@
     vc.currentLevel = [[DHLevelPlayground alloc] init];
     vc.levelArray = nil;
     vc.levelIndex = 0;
-    vc.title = @"Playground";
+    //vc.title = @"Playground";
+    vc.title = @"自由演练";
     vc.currentGameMode = kDHGameModePlayground;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -293,7 +315,8 @@
     vc.currentLevel = [[DHLevelTutorial alloc] init];
     vc.levelArray = nil;
     vc.levelIndex = NSUIntegerMax;
-    vc.title = @"Tutorial";
+    //vc.title = @"Tutorial";
+    vc.title = @"新手教学";
     vc.currentGameMode = kDHGameModeTutorial;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -371,9 +394,12 @@
                                                                firstButtonTitle:nil];
         popOverView.width = 260;
         
-        [popOverView addButtonWithTitle:@"Settings"];
-        [popOverView addButtonWithTitle:@"Leaderboards & Achievements"];
-        [popOverView addButtonWithTitle:@"About"];
+        //[popOverView addButtonWithTitle:@"Settings"];
+        //[popOverView addButtonWithTitle:@"Leaderboards & Achievements"];
+        //[popOverView addButtonWithTitle:@"About"];
+        [popOverView addButtonWithTitle:@"设置"];
+        [popOverView addButtonWithTitle:@"排行榜 & 成就"];
+        [popOverView addButtonWithTitle:@"关于"];
         [popOverView show];
         
         _popoverMenu = popOverView;

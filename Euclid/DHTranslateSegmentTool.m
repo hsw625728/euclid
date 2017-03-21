@@ -27,16 +27,23 @@
 {
     self = [super init];
     if (self) {
+        /*
         _tooltipTempUnfinished = @"Drag to a point that should be the start of the translated segment";
         _tooltipTempFinished = @"Release to create translated segment";
         _toolTipPartial = @"Tap on a point to define the starting point of the translated segment";
         _toolTipPartialOnePoint = @"Tap on a second point to define the line segment to be translated";
+         */
+        _tooltipTempUnfinished = @"拖动到一个点作为即将平移线段点起点。";
+        _tooltipTempFinished = @"释放手指以平移线段。";
+        _toolTipPartial = @"点击一个点作为即将平移线段点起点。";
+        _toolTipPartialOnePoint = @"点击第二个点来定义线段即将平移到到位置。";
     }
     return self;
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap two points or a line segment you wish to translate";
+    //return @"Tap two points or a line segment you wish to translate";
+    return @"点击你想平移的两个点或一条线段。";
 }
 - (void)touchBegan:(UITouch*)touch
 {
@@ -200,7 +207,8 @@
                 // Check if point is on line and then do nothing
                 DHLine* l = [[DHLine alloc] initWithStart:self.start andEnd:self.end];
                 if (PointOnLine(_tempTransSegment.start, l)) {
-                    [self.delegate showTemporaryMessage:@"Not allowed, point lies on same line as segment"
+                    //[self.delegate showTemporaryMessage:@"Not allowed, point lies on same line as segment"
+                    [self.delegate showTemporaryMessage:@"不允许, 在同一直线上不能平移。"
                                                 atPoint:touchPointInView withColor:[UIColor redColor]];
                     [self reset];
                     [touch.view setNeedsDisplay];

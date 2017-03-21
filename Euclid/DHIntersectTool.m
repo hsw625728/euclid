@@ -17,7 +17,8 @@
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap an intersection between two lines/circles to add a new point";
+    //return @"Tap an intersection between two lines/circles to add a new point";
+    return @"点击两条直线(曲线)点交点位置，可以在交点处创建一个新的点。";
 }
 - (void)touchBegan:(UITouch*)touch
 {

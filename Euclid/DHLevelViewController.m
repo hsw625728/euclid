@@ -96,19 +96,23 @@
     // Set up navigation toolbar
     UIBarButtonItem *separator = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain
                                                                  target:self action:nil];
-    UIBarButtonItem *resetButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset"
+    //UIBarButtonItem *resetButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reset"
+    UIBarButtonItem *resetButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"重置"
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
                                                                        action:@selector(askToResetLevel)];
-    UIBarButtonItem *undoButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Undo"
+    //UIBarButtonItem *undoButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Undo"
+    UIBarButtonItem *undoButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"撤消(Undo)"
                                                                        style:UIBarButtonItemStylePlain
                                                                       target:self
                                                                       action:@selector(undoMove)];
-    UIBarButtonItem *redoButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Redo"
+    //UIBarButtonItem *redoButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Redo"
+    UIBarButtonItem *redoButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"重做(Redo)"
                                                                        style:UIBarButtonItemStylePlain
                                                                       target:self
                                                                       action:@selector(redoMove)];
-    UIBarButtonItem *hintButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Hint"
+    //UIBarButtonItem *hintButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Hint"
+    UIBarButtonItem *hintButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提示"
                                                                        style:UIBarButtonItemStylePlain
                                                                       target:self
                                                                       action:@selector(showHint:)];
@@ -265,11 +269,14 @@
     [self.geometryView.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
     
     if (self.currentGameMode == kDHGameModeTutorial) {
-        self.title = @"Tutorial";
+        //self.title = @"Tutorial";
+        self.title = @"新手教学";
     } else if (self.currentGameMode == kDHGameModePlayground) {
-        self.title = @"Playground";
+        //self.title = @"Playground";
+        self.title = @"自由演练";
     } else {
-        self.title = [NSString stringWithFormat:@"Level %lu", (unsigned long)(self.levelIndex+1)];
+        //self.title = [NSString stringWithFormat:@"Level %lu", (unsigned long)(self.levelIndex+1)];
+        self.title = [NSString stringWithFormat:@"挑战 %lu", (unsigned long)(self.levelIndex+1)];
     }
     
     if (self.currentGameMode == kDHGameModeNormalMinimumMoves) {
@@ -285,7 +292,8 @@
     
     [self showOrHideHintButton];
     
-    NSString* levelInstruction = [@"Objective: " stringByAppendingString:[_currentLevel levelDescription]];
+    //NSString* levelInstruction = [@"Objective: " stringByAppendingString:[_currentLevel levelDescription]];
+    NSString* levelInstruction = [@"目标: " stringByAppendingString:[_currentLevel levelDescription]];
     _levelInstruction.text = levelInstruction;
     
     [self showDetailedLevelInstruction:nil];
@@ -336,7 +344,8 @@
     [self showOrHideHintButton];
     _hintButton.enabled = YES;
     
-    [self.detailedInstructions setTitle:@"Full instruction" forState:UIControlStateNormal];
+    //[self.detailedInstructions setTitle:@"Full instruction" forState:UIControlStateNormal];
+    [self.detailedInstructions setTitle:@"完整说明" forState:UIControlStateNormal];
     [self.detailedInstructions removeTarget:self action:@selector(loadNextLevel:) forControlEvents:UIControlEventTouchUpInside];
     [self.detailedInstructions addTarget:self action:@selector(showDetailedLevelInstruction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -381,9 +390,11 @@
     
     self.levelCompleted = NO;
     self.levelMoves = 0;
-    self.movesLabel.text = [NSString stringWithFormat:@"Moves: %lu", (unsigned long)self.levelMoves];
+    //self.movesLabel.text = [NSString stringWithFormat:@"Moves: %lu", (unsigned long)self.levelMoves];
+    self.movesLabel.text = [NSString stringWithFormat:@"步骤: %lu", (unsigned long)self.levelMoves];
     if (self.maxNumberOfMoves > 0) {
-        self.movesLeftLabel.text = [NSString stringWithFormat:@"Moves left: %lu",
+        //self.movesLeftLabel.text = [NSString stringWithFormat:@"Moves left: %lu",
+        self.movesLeftLabel.text = [NSString stringWithFormat:@"剩余步骤: %lu",
                                     (unsigned long)(self.maxNumberOfMoves - self.levelMoves)];
         self.movesLeftLabel.textColor = [UIColor darkGrayColor];
     }
@@ -448,8 +459,10 @@
     }
     if (countMove && self.maxNumberOfMoves > 0 && self.maxNumberOfMoves - self.levelMoves == 0) {
         [self.geometryView setNeedsDisplay];
-        [self showTemporaryMessage:(@"You are out of moves and can only create points\n"
-                                    @"(or undo previous moves/reset the level)")
+        //[self showTemporaryMessage:(@"You are out of moves and can only create points\n"
+        //                            @"(or undo previous moves/reset the level)")
+        [self showTemporaryMessage:(@"你已经使用完了所有可用的步骤，现在只能在屏幕上画点\n"
+                                    @"你可以： 撤消(Undo)上一个操作/重置当前挑战目标")
                            atPoint:CGPointMake(self.view.frame.size.width*0.5, self.view.frame.size.height*0.5)
                          withColor:[UIColor redColor] forDuration:5.0];
         return;
@@ -486,9 +499,11 @@
 
     if (countMove) {
         self.levelMoves++;
-        self.movesLabel.text = [NSString stringWithFormat:@"Moves: %lu", (unsigned long)self.levelMoves];
+        //self.movesLabel.text = [NSString stringWithFormat:@"Moves: %lu", (unsigned long)self.levelMoves];
+        self.movesLabel.text = [NSString stringWithFormat:@"步骤: %lu", (unsigned long)self.levelMoves];
         if (self.maxNumberOfMoves > 0) {
-            self.movesLeftLabel.text = [NSString stringWithFormat:@"Moves left: %lu",
+            //self.movesLeftLabel.text = [NSString stringWithFormat:@"Moves left: %lu",
+            self.movesLeftLabel.text = [NSString stringWithFormat:@"剩余步骤: %lu",
                                     (unsigned long)(self.maxNumberOfMoves - self.levelMoves)];
             if (self.maxNumberOfMoves - self.levelMoves == 0) {
                 self.movesLeftLabel.textColor = [UIColor redColor];
@@ -514,9 +529,11 @@
             CGPoint hintLocationInView = [self.geoViewTransform geoToView:hintLocation];
             if (_progressBar.progress < _currentLevel.progress/100.0 &&
                 ([DHSettings showWellDoneMessages] || [DHSettings showHints])) {
-                [self showTemporaryMessage:[NSString stringWithFormat:@"Well done!"] atPoint:hintLocationInView withColor:[UIColor darkGrayColor]];
+                //[self showTemporaryMessage:[NSString stringWithFormat:@"Well done!"] atPoint:hintLocationInView withColor:[UIColor darkGrayColor]];
+                [self showTemporaryMessage:[NSString stringWithFormat:@"做的漂亮!"] atPoint:hintLocationInView withColor:[UIColor darkGrayColor]];
             } else if ([DHSettings showHints] && self.currentGameMode == kDHGameModeNormal) {
-                [self showTemporaryMessage:[NSString stringWithFormat:@"Good choice!"] atPoint:hintLocationInView withColor:[UIColor darkGrayColor]];
+                //[self showTemporaryMessage:[NSString stringWithFormat:@"Good choice!"] atPoint:hintLocationInView withColor:[UIColor darkGrayColor]];
+                [self showTemporaryMessage:[NSString stringWithFormat:@"不错的步骤!"] atPoint:hintLocationInView withColor:[UIColor darkGrayColor]];
             }
         }
     }
@@ -531,8 +548,10 @@
     if (!self.levelCompleted && countMove && self.maxNumberOfMoves > 0 && self.maxNumberOfMoves - self.levelMoves == 0)
     {
         [self.geometryView setNeedsDisplay];
-        [self showTemporaryMessage:(@"You are out of moves and can only create points\n"
-                                    @"(or undo previous moves/reset the level)")
+        //[self showTemporaryMessage:(@"You are out of moves and can only create points\n"
+        //                            @"(or undo previous moves/reset the level)")
+        [self showTemporaryMessage:(@"你已经使用完了所有可用的步骤，现在只能在屏幕上画点\n"
+                                    @"你可以： 撤消(Undo)上一个操作/重置当前挑战目标")
                            atPoint:CGPointMake(self.view.frame.size.width*0.5, self.view.frame.size.height*0.5)
                          withColor:[UIColor redColor] forDuration:4.0];
     }
@@ -925,9 +944,11 @@
     }
     if (undoMove) {
         self.levelMoves--;
-        self.movesLabel.text = [NSString stringWithFormat:@"Moves: %lu", (unsigned long)self.levelMoves];
+        //self.movesLabel.text = [NSString stringWithFormat:@"Moves: %lu", (unsigned long)self.levelMoves];
+        self.movesLabel.text = [NSString stringWithFormat:@"步骤: %lu", (unsigned long)self.levelMoves];
         if (self.maxNumberOfMoves > 0) {
-            self.movesLeftLabel.text = [NSString stringWithFormat:@"Moves left: %lu",
+            //self.movesLeftLabel.text = [NSString stringWithFormat:@"Moves left: %lu",
+            self.movesLeftLabel.text = [NSString stringWithFormat:@"剩余步骤: %lu",
                                     (unsigned long)(self.maxNumberOfMoves - self.levelMoves)];
             self.movesLeftLabel.textColor = [UIColor darkGrayColor];
         }
@@ -967,7 +988,8 @@
 #pragma mark Hint related methods
 - (void)showHint:(id)sender
 {
-    UIBarButtonItem *closeHintButton = [[UIBarButtonItem alloc] initWithTitle:@"Close hint"
+    //UIBarButtonItem *closeHintButton = [[UIBarButtonItem alloc] initWithTitle:@"Close hint"
+    UIBarButtonItem *closeHintButton = [[UIBarButtonItem alloc] initWithTitle:@"关闭提示"
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
                                                                        action:@selector(hideHint:)];
@@ -1039,13 +1061,21 @@
 #pragma mark Other
 - (void) askToResetLevel
 {
+    /*
     NSString* resetMessage = @"Resetting the level will remove all items you have constructed";
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Reset level"
                                                         message:resetMessage
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"Reset", nil];
-    [alertView show];
+     */
+    NSString* resetMessage = @"重置挑战会移除你当前已经在屏幕上创建的所有项目";
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"重置挑战"
+                                                        message:resetMessage
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                              otherButtonTitles:@"重置", nil];
+     [alertView show];
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -1092,24 +1122,29 @@
     
     if (self.currentGameMode == kDHGameModeTutorial) {
         // Special message for tutorial
-        [completionMessageText setString:@"Well done! You are now ready to begin with Level 1."];
+        //[completionMessageText setString:@"Well done! You are now ready to begin with Level 1."];
+        [completionMessageText setString:@"好样的! 你现在已经做好面对第一个挑战的准备了。"];
         self.nextChallengeButton.hidden = NO;
-        [self.nextChallengeButton setTitle:@"Go to Level 1." forState:UIControlStateNormal];
+        //[self.nextChallengeButton setTitle:@"Go to Level 1." forState:UIControlStateNormal];
+        [self.nextChallengeButton setTitle:@"前往挑战 - 1 " forState:UIControlStateNormal];
         [self.nextChallengeButton addTarget:self action:@selector(loadNextLevel:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         // If this is the last level, show special completion message and hide the "Next level" button
         if (self.levelIndex >= self.levelArray.count - 1) {
             self.nextChallengeButton.hidden = YES;
-            [completionMessageText appendString:@"\n\nEuclid would be proud of you. You completed ALL levels !!!"];
+            //[completionMessageText appendString:@"\n\nEuclid would be proud of you. You completed ALL levels !!!"];
+            [completionMessageText appendString:@"\n\n 我们真心的为你感到自豪。 你完成了所有的挑战 !!!"];
         } else {
             self.nextChallengeButton.hidden = NO;
-            [self.nextChallengeButton setTitle:@"Continue to next level" forState:UIControlStateNormal];
+            //[self.nextChallengeButton setTitle:@"Continue to next level" forState:UIControlStateNormal];
+            [self.nextChallengeButton setTitle:@"继续下一个挑战" forState:UIControlStateNormal];
             [self.nextChallengeButton addTarget:self action:@selector(loadNextLevel:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
     
     if (completionMessageText.length == 0) {
-        [completionMessageText setString:@"Well done, you completed the level!"];
+        //[completionMessageText setString:@"Well done, you completed the level!"];
+        [completionMessageText setString:@"做的好！ 你完成了挑战目标!"];
     }
     
     self.levelCompletionMessageAdditional.text = completionMessageText;
@@ -1127,7 +1162,8 @@
                      completion:^(BOOL finished){
                      }];
     
-    [self.detailedInstructions setTitle:@"Next Level" forState:UIControlStateNormal];
+    //[self.detailedInstructions setTitle:@"Next Level" forState:UIControlStateNormal];
+    [self.detailedInstructions setTitle:@"下一个挑战" forState:UIControlStateNormal];
     [self.detailedInstructions removeTarget:self action:@selector(showDetailedLevelInstruction:) forControlEvents:UIControlEventTouchUpInside];
     [self.detailedInstructions addTarget:self action:@selector(loadNextLevel:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -1287,19 +1323,23 @@
                              forControlEvents:UIControlEventTouchUpInside];
     
     if (self.firstMoveMade == 0) {
-        [startButton setTitle:@"Start Game" forState:UIControlStateNormal];
+        //[startButton setTitle:@"Start Game" forState:UIControlStateNormal];
+        [startButton setTitle:@"开始挑战" forState:UIControlStateNormal];
     } else {
-        [startButton setTitle:@"Resume Game" forState:UIControlStateNormal];
+        //[startButton setTitle:@"Resume Game" forState:UIControlStateNormal];
+        [startButton setTitle:@"返回挑战" forState:UIControlStateNormal];
     }
     
     startButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     
-    titleLabel.text = [self.title stringByAppendingString:@" - Objective"];
+    //titleLabel.text = [self.title stringByAppendingString:@" - Objective"];
+    titleLabel.text = [self.title stringByAppendingString:@" - 目标"];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor darkGrayColor];
     titleLabel.font = [UIFont boldSystemFontOfSize:fontSizeTitle];
 
-    solutionPreviewLabel.text = @"Solution preview:";
+    //solutionPreviewLabel.text = @"Solution preview:";
+    solutionPreviewLabel.text = @"解决方案预览:";
     solutionPreviewLabel.textColor = [UIColor darkGrayColor];
     solutionPreviewLabel.font = [UIFont boldSystemFontOfSize:fontSizeText];
     
@@ -1308,11 +1348,13 @@
     turnHintOnLabel.font = [UIFont systemFontOfSize:fontSizeText];
     if ([DHSettings showHints]){
         [hintSwitch setOn:YES];
-        turnHintOnLabel.text = @"Show hints: ";
+        //turnHintOnLabel.text = @"Show hints: ";
+        turnHintOnLabel.text = @"显示提示: ";
     }
     else{
         [hintSwitch setOn:NO];
-        turnHintOnLabel.text = @"Show hints: ";
+        //turnHintOnLabel.text = @"Show hints: ";
+        turnHintOnLabel.text = @"显示提示: ";
     }
 
     objectiveLabel.text = [_currentLevel levelDescription];
@@ -1599,7 +1641,8 @@
 {
     [_progressBar setProgress:progress/100.0 animated:YES];
     if (_progressLabelPhone) {
-        _progressLabelPhone.text = [NSString stringWithFormat:@"Progress: %lu%%", (unsigned long)progress];
+        //_progressLabelPhone.text = [NSString stringWithFormat:@"Progress: %lu%%", (unsigned long)progress];
+        _progressLabelPhone.text = [NSString stringWithFormat:@"完成进度: %lu%%", (unsigned long)progress];
         [_progressLabelPhone sizeToFit];
     }
 }
@@ -1649,21 +1692,29 @@
                                                                firstButtonTitle:nil];
         if (_currentGameMode != kDHGameModePlayground) {
             if (!_levelCompleted) {
-                [popOverView addButtonWithTitle:@"Show level instruction"];
+                //[popOverView addButtonWithTitle:@"Show level instruction"];
+                [popOverView addButtonWithTitle:@"挑战目标"];
             } else {
                 // Unless this is the last level, show a button to go the next level
                 if (self.levelIndex >= self.levelArray.count - 1) {
                 } else {
-                    [popOverView addButtonWithTitle:@"Go to next level"];
+                    //[popOverView addButtonWithTitle:@"Go to next level"];
+                    [popOverView addButtonWithTitle:@"前往下一个挑战"];
                 }
             }
             if ([DHSettings showHints] && _currentGameMode == kDHGameModeNormal) {
-                [popOverView addButtonWithTitle:@"Show hint" enabled:YES];
+                //[popOverView addButtonWithTitle:@"Show hint" enabled:YES];
+                [popOverView addButtonWithTitle:@"显示提示" enabled:YES];
             }
         }
+        /*
         [popOverView addButtonWithTitle:@"Undo move" enabled:_undoButton.enabled];
         [popOverView addButtonWithTitle:@"Redo move" enabled:_redoButton.enabled];
         [popOverView addButtonWithTitle:@"Reset level"];
+        */
+        [popOverView addButtonWithTitle:@"撤消(Undo)操作" enabled:_undoButton.enabled];
+        [popOverView addButtonWithTitle:@"重做(Redo)操作" enabled:_redoButton.enabled];
+        [popOverView addButtonWithTitle:@"重置挑战"];
         [popOverView show];
         
         _popoverMenu = popOverView;
@@ -1743,22 +1794,28 @@
 {
     if (popoverView == _popoverMenu) {
         NSString* title = [popoverView titleForButton:buttonIndex];
-        if ([title isEqualToString:@"Show level instruction"]) {
+        //if ([title isEqualToString:@"Show level instruction"]) {
+        if ([title isEqualToString:@"挑战目标"]) {
             [self showDetailedLevelInstruction:nil];
         }
-        if ([title isEqualToString:@"Reset level"]) {
+        //if ([title isEqualToString:@"Reset level"]) {
+        if ([title isEqualToString:@"重置挑战"]) {
             [self askToResetLevel];
         }
-        if ([title isEqualToString:@"Undo move"]) {
+        //if ([title isEqualToString:@"Undo move"]) {
+        if ([title isEqualToString:@"撤消(Undo)操作"]) {
             [self undoMove];
         }
-        if ([title isEqualToString:@"Redo move"]) {
+        //if ([title isEqualToString:@"Redo move"]) {
+        if ([title isEqualToString:@"重做(Redo)操作"]) {
             [self redoMove];
         }
-        if ([title isEqualToString:@"Show hint"]) {
+        //if ([title isEqualToString:@"Show hint"]) {
+        if ([title isEqualToString:@"显示提示"]) {
             [self showHint:nil];
         }
-        if ([title isEqualToString:@"Go to next level"]) {
+        //if ([title isEqualToString:@"Go to next level"]) {
+        if ([title isEqualToString:@"前往下一个挑战"]) {
             [self loadNextLevel:nil];
         }
     }

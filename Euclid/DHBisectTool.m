@@ -18,7 +18,8 @@
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap two lines, rays or line segments (or three points) that define an angle to create its bisector";
+    //return @"Tap two lines, rays or line segments (or three points) that define an angle to create its bisector";
+    return @"点击来创建两条直线、射线或者线段（或三个点）组成角度的平分线。";
 }
 - (void)touchBegan:(UITouch*)touch
 {
@@ -45,7 +46,8 @@
                 self.secondLine = line;
                 line.highlighted = YES;
                 _selectedLine = &_secondLine;
-                [self.delegate toolTipDidChange:@"Release to create bisector"];
+                //[self.delegate toolTipDidChange:@"Release to create bisector"];
+                [self.delegate toolTipDidChange:@"释放手指创建平分线。"];
             }
         }
     } else {
@@ -76,7 +78,8 @@
                     [self.delegate addTemporaryGeometricObjects:@[_tempIntersectionPoint3]];
                 }
                 
-                [self.delegate toolTipDidChange:@"Release to create bisector"];
+                //[self.delegate toolTipDidChange:@"Release to create bisector"];
+                [self.delegate toolTipDidChange:@"释放手指创建平分线。"];
             }
         }
     }
@@ -95,10 +98,12 @@
             _selectedPoint = nil;
             
             if (self.firstPoint && self.secondPoint == nil) {
-                [self.delegate toolTipDidChange:@"Tap a second point to mark the corner of the angle"];
+                //[self.delegate toolTipDidChange:@"Tap a second point to mark the corner of the angle"];
+                [self.delegate toolTipDidChange:@"点击第二个点来定义角度。"];
             }
             if (self.firstPoint && self.secondPoint) {
-                [self.delegate toolTipDidChange:@"Tap a third point to define the angle and create the bisector"];
+                //[self.delegate toolTipDidChange:@"Tap a third point to define the angle and create the bisector"];
+                [self.delegate toolTipDidChange:@"点击第三个点来定义角度并且创建这个角度点平分线。"];
             }
         }
     }
@@ -110,7 +115,8 @@
             _selectedLine = nil;
             
             if (self.firstLine && self.secondLine == nil) {
-                [self.delegate toolTipDidChange:@"Tap a second line intersecting/connected to the first to create the bisector"];
+                //[self.delegate toolTipDidChange:@"Tap a second line intersecting/connected to the first to create the bisector"];
+                [self.delegate toolTipDidChange:@"点击与第一条线相交/连接的第二条线以创建平分线。"];
             }
         }
     }
@@ -129,12 +135,14 @@
         if (IntersectionTestLineLine(self.firstLine, self.secondLine).intersect == NO) {
             self.secondLine.highlighted = NO;
             self.secondLine = nil;
-            [self.delegate showTemporaryMessage:@"The lines must intersect or be connected to define an angle"
+            //[self.delegate showTemporaryMessage:@"The lines must intersect or be connected to define an angle"
+            [self.delegate showTemporaryMessage:@"线必须是相交或相连以确定一个角度。"
                                         atPoint:touchPointInView withColor:[UIColor redColor]];
         } else if (EqualDirection(self.firstLine, self.secondLine)) {
             self.secondLine.highlighted = NO;
             self.secondLine = nil;
-            [self.delegate showTemporaryMessage:@"The lines can not be parallel to define an angle"
+            //[self.delegate showTemporaryMessage:@"The lines can not be parallel to define an angle"
+            [self.delegate showTemporaryMessage:@"线是平行的不能确定一个角度。"
                                         atPoint:touchPointInView withColor:[UIColor redColor]];
         } else {
             BOOL createPerpendicular = YES;
@@ -178,7 +186,8 @@
             
             self.thirdPoint.highlighted = NO;
             self.thirdPoint = nil;
-            [self.delegate showTemporaryMessage:@"The points can not all lie on a line to define an angle"
+            //[self.delegate showTemporaryMessage:@"The points can not all lie on a line to define an angle"
+            [self.delegate showTemporaryMessage:@"点不能在同一条直线上以定义一个角度。"
                                         atPoint:touchPointInView withColor:[UIColor redColor]];
         } else {
             DHBisectLine* bl = [[DHBisectLine alloc] init];
@@ -196,13 +205,16 @@
     }
     
     if (self.firstLine && self.secondLine == nil) {
-        [self.delegate toolTipDidChange:@"Tap a second line intersecting/connected to the first to create the bisector"];
+        //[self.delegate toolTipDidChange:@"Tap a second line intersecting/connected to the first to create the bisector"];
+        [self.delegate toolTipDidChange:@"点击与第一条线相交/连接的第二条线以创建平分线。"];
     }
     if (self.firstPoint && self.secondPoint == nil) {
-        [self.delegate toolTipDidChange:@"Tap a second point to mark the corner of the angle"];
+        //[self.delegate toolTipDidChange:@"Tap a second point to mark the corner of the angle"];
+        [self.delegate toolTipDidChange:@"点击第二个点来定义角度。"];
     }
     if (self.firstPoint && self.secondPoint) {
-        [self.delegate toolTipDidChange:@"Tap a third point to define the angle and create the bisector"];
+        //[self.delegate toolTipDidChange:@"Tap a third point to define the angle and create the bisector"];
+        [self.delegate toolTipDidChange:@"点击第三个点来定义角度并且创建这个角度点平分线。"];
     }
     
     [touch.view setNeedsDisplay];

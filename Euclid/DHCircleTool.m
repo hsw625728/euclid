@@ -19,7 +19,8 @@
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap on any point to mark the center of a new circle";
+    //return @"Tap on any point to mark the center of a new circle";
+    return @"点击一个点来确定一个圆的圆心。";
 }
 - (void)touchBegan:(UITouch*)touch
 {
@@ -42,7 +43,8 @@
     if (!self.center && point) {
         self.center = point;
         point.highlighted = true;
-        [self.delegate toolTipDidChange:@"Drag to a point that the circle will pass through"];
+        //[self.delegate toolTipDidChange:@"Drag to a point that the circle will pass through"];
+        [self.delegate toolTipDidChange:@"拖动到一个圆即将经过的点。"];
         
         if (_tempIntersectionCenter) {
             [self.delegate addTemporaryGeometricObjects:@[_tempIntersectionCenter]];
@@ -53,10 +55,12 @@
         if (point && point != self.center) {
             point.highlighted = YES;
             _temporaryCircle.pointOnRadius = point;
-            [self.delegate toolTipDidChange:@"Release to create circle"];
+            //[self.delegate toolTipDidChange:@"Release to create circle"];
+            [self.delegate toolTipDidChange:@"释放手指来创建这个圆。"];
         } else {
             _temporaryCircle.temporary = YES;
-            [self.delegate toolTipDidChange:@"Drag to a point that the circle will pass through"];
+            //[self.delegate toolTipDidChange:@"Drag to a point that the circle will pass through"];
+            [self.delegate toolTipDidChange:@"拖动到一个圆即将经过的点。"];
         }
         [self.delegate addTemporaryGeometricObjects:@[_temporaryCircle]];
         if (_tempIntersectionRadius) {
@@ -101,9 +105,11 @@
             
             if (_tempIntersectionRadius) [self.delegate addTemporaryGeometricObjects:@[_tempIntersectionRadius]];
 
-            [self.delegate toolTipDidChange:@"Release to create circle"];
+            //[self.delegate toolTipDidChange:@"Release to create circle"];
+            [self.delegate toolTipDidChange:@"释放手指来创建这个圆。"];
         } else {
-            [self.delegate toolTipDidChange:@"Drag to a point that the circle will pass through"];
+            //[self.delegate toolTipDidChange:@"Drag to a point that the circle will pass through"];
+            [self.delegate toolTipDidChange:@"拖动到一个圆即将经过的点。"];
             _temporaryCircle.temporary = YES;
         }
     }
@@ -138,11 +144,13 @@
             } else {
                 _temporaryCircle = nil;
                 _tempPointOnRadius = nil;
-                [self.delegate toolTipDidChange:@"Tap on a second point that the circle will pass through"];
+                //[self.delegate toolTipDidChange:@"Tap on a second point that the circle will pass through"];
+                [self.delegate toolTipDidChange:@"拖动到一个圆即将经过的点。"];
             }
         }
     } else if (self.center) {
-        [self.delegate toolTipDidChange:@"Tap on a second point that the circle will pass through"];
+        //[self.delegate toolTipDidChange:@"Tap on a second point that the circle will pass through"];
+        [self.delegate toolTipDidChange:@"拖动到一个圆即将经过的点。"];
     }
     
     [touch.view setNeedsDisplay];

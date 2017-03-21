@@ -26,7 +26,8 @@
         _title = [[UILabel alloc] initWithFrame:CGRectMake(10, 6, 200, 25)];
         _title.font = [UIFont boldSystemFontOfSize:16];
         _title.textColor = [UIColor lightGrayColor];
-        _title.text = @"Beginner";
+        //_title.text = @"Beginner";
+        _title.text = @"新手";
         [self addSubview:_title];
         //self.backgroundColor = [UIColor redColor];
     }
@@ -153,7 +154,8 @@
     self.navigationController.delegate = self;
     
     if (_iPhoneVersion) {
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+        //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回"
                                                                                  style:UIBarButtonItemStylePlain
                                                                                 target:nil action:nil];
     }
@@ -207,7 +209,8 @@
                                                                            forIndexPath:indexPath];
     
     DHLevel<DHLevel>* level = [_levels objectAtIndex:levelIndex];
-    NSString* title = [NSString stringWithFormat:@"Level %ld", (long)(levelIndex+1)];
+    //NSString* title = [NSString stringWithFormat:@"Level %ld", (long)(levelIndex+1)];
+    NSString* title = [NSString stringWithFormat:@"挑战 %ld", (long)(levelIndex+1)];
     
     cell.title = title;
     cell.level = level;
@@ -267,11 +270,14 @@
         reusableview = headerView;
         
         if (indexPath.section == 0) {
-            headerView.title.text = @"Beginner";
+            //headerView.title.text = @"Beginner";
+            headerView.title.text = @"新手";
         } else if (indexPath.section == 1) {
-            headerView.title.text = @"Intermediate";
+            //headerView.title.text = @"Intermediate";
+            headerView.title.text = @"进阶";
         } else {
-            headerView.title.text = @"Expert";
+            //headerView.title.text = @"Expert";
+            headerView.title.text = @"专家";
         }
     }
     if (kind == UICollectionElementKindSectionFooter && indexPath.section == 0) {

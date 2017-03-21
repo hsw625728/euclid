@@ -28,16 +28,23 @@
 {
     self = [super init];
     if (self) {
+        /*
         _tooltipTempUnfinished = @"Drag to a point that should be the center of the circle";
         _tooltipTempFinished = @"Release to create circle";
         _toolTipPartial = @"Tap a point to mark the center of the circle";
         _toolTipPartialOnePoint = @"Tap a second point to define the radius";
+         */
+        _tooltipTempUnfinished = @"拖动到圆的圆心点。";
+        _tooltipTempFinished = @"释放手指以创建。";
+        _toolTipPartial = @"点击圆的圆心点。";
+        _toolTipPartialOnePoint = @"点击第二个点来定义半径。";
     }
     return self;
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap two points, a segment or a circle to define the radius";
+    //return @"Tap two points, a segment or a circle to define the radius";
+    return @"点击两个点、一条线段或者一个圆来定义半径。";
 }
 - (void)touchBegan:(UITouch*)touch
 {

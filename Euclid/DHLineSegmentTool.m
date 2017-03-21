@@ -19,7 +19,8 @@
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap on a point to mark the start of a new line segment";
+    //return @"Tap on a point to mark the start of a new line segment";
+    return @"点击一个点来作为一条新线段的起点。";
 }
 - (void)touchBegan:(UITouch*)touch
 {
@@ -45,7 +46,8 @@
         // If no starting yet and point was found, use as starting point and highlight it
         self.startPoint = point;
         point.highlighted = YES;
-        [self.delegate toolTipDidChange:@"Drag to a point defining the end point of the segment"];
+        //[self.delegate toolTipDidChange:@"Drag to a point defining the end point of the segment"];
+        [self.delegate toolTipDidChange:@"拖动到一个点来定义这条线段的终点。"];
         
         if (_tempIntersectionStart) {
             [self.delegate addTemporaryGeometricObjects:@[_tempIntersectionStart]];
@@ -60,11 +62,13 @@
             }
             _tempSegment.end = point;
             _tempSegment.end.highlighted = YES;
-            [self.delegate toolTipDidChange:@"Release to create line segment"];
+            //[self.delegate toolTipDidChange:@"Release to create line segment"];
+            [self.delegate toolTipDidChange:@"释放手指来创建这条线段。"];
             
         } else {
             _tempSegment.temporary = YES;
-            [self.delegate toolTipDidChange:@"Drag to a point defining the end point of the segment"];
+            //[self.delegate toolTipDidChange:@"Drag to a point defining the end point of the segment"];
+            [self.delegate toolTipDidChange:@"拖动到一个点来定义这条线段的终点。"];
         }
         [self.delegate addTemporaryGeometricObjects:@[_tempSegment]];
         [touch.view setNeedsDisplay];
@@ -106,11 +110,13 @@
                 [self.delegate addTemporaryGeometricObjects:@[_tempIntersectionEnd]];
             }
             
-            [self.delegate toolTipDidChange:@"Release to create line segment"];
+            //[self.delegate toolTipDidChange:@"Release to create line segment"];
+            [self.delegate toolTipDidChange:@"释放手指来创建这条线段。"];
         } else {
             _tempSegment.temporary = YES;
             _tempSegment.end = _tempEndPoint;
-            [self.delegate toolTipDidChange:@"Drag to a point defining the end point of the segment"];
+            //[self.delegate toolTipDidChange:@"Drag to a point defining the end point of the segment"];
+            [self.delegate toolTipDidChange:@"拖动到一个点来定义这条线段的终点。"];
         }
     }
     [touch.view setNeedsDisplay];
@@ -144,11 +150,13 @@
             } else {
                 _tempSegment = nil;
                 _tempEndPoint = nil;
-                [self.delegate toolTipDidChange:@"Tap on a second point to mark the end the line segment"];
+                //[self.delegate toolTipDidChange:@"Tap on a second point to mark the end the line segment"];
+                [self.delegate toolTipDidChange:@"点击第二个点来确定这条线段的终点。"];
             }
         }
     } else if (self.startPoint) {
-        [self.delegate toolTipDidChange:@"Tap on a second point to mark the end the line segment"];
+        //[self.delegate toolTipDidChange:@"Tap on a second point to mark the end the line segment"];
+        [self.delegate toolTipDidChange:@"点击第二个点来确定这条线段的终点。"];
     }
     
     [touch.view setNeedsDisplay];

@@ -206,7 +206,8 @@
 }
 - (void)setDifficultyDescription:(NSString *)difficultyDescription
 {
-    _difficultyDescriptionLabel.text = [@"Difficulty: " stringByAppendingString:difficultyDescription];
+    //_difficultyDescriptionLabel.text = [@"Difficulty: " stringByAppendingString:difficultyDescription];
+    _difficultyDescriptionLabel.text = [@"难度: " stringByAppendingString:difficultyDescription];
     _difficultyDescriptionLabel.hidden = NO;
 }
 - (NSString *)difficultyDescription

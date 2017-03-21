@@ -26,15 +26,21 @@
 {
     self = [super init];
     if (self) {
+        /*
         _temporaryTooltipUnfinished = @"Drag to a second point defining the second corner of the triangle";
         _temporaryTooltipFinished = @"Release to create triangle";
         _partialTooltip = @"Tap on a second point defining the second corner of the triangle";
+         */
+        _temporaryTooltipUnfinished = @"拖动到第二个点来定义三角形的第二个顶点。";
+        _temporaryTooltipFinished = @"释放手指创建这个三角形。";
+        _partialTooltip = @"点击第二个点来定义三角形的第二个顶点。";
     }
     return self;
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap a point that will form one of the corners in the triangle (counter-clockwise order)";
+    //return @"Tap a point that will form one of the corners in the triangle (counter-clockwise order)";
+    return @"点击一个点来定义三角形的第一个顶点（逆时针方向）。";
 }
 - (void)touchBegan:(UITouch*)touch
 {

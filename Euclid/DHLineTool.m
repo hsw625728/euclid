@@ -19,7 +19,8 @@
 }
 - (NSString*)initialToolTip
 {
-    return @"Tap on a point to mark the first of two points needed to define a line";
+    //return @"Tap on a point to mark the first of two points needed to define a line";
+    return @"定义一条直线，首先请点击确定一条直线所需要的第一个点。";
 }
 - (void)touchBegan:(UITouch*)touch
 {
@@ -42,7 +43,8 @@
     if (!self.startPoint && point) {
         self.startPoint = point;
         point.highlighted = YES;
-        [self.delegate toolTipDidChange:@"Drag to a second point that the line will pass through"];
+        //[self.delegate toolTipDidChange:@"Drag to a second point that the line will pass through"];
+        [self.delegate toolTipDidChange:@"拖动到直线即将经过的第二个点。"];
         
         if (_tempIntersectionStart) {
             [self.delegate addTemporaryGeometricObjects:@[_tempIntersectionStart]];
@@ -54,11 +56,13 @@
         if (point && point != self.startPoint) {
             _tempLine.end = point;
             _tempLine.end.highlighted = YES;
-            [self.delegate toolTipDidChange:@"Release to create line"];
+            //[self.delegate toolTipDidChange:@"Release to create line"];
+            [self.delegate toolTipDidChange:@"释放手指确定一条直线。"];
         } else {
             _tempLine.end.position = touchPoint;
             _tempLine.temporary = YES;
-            [self.delegate toolTipDidChange:@"Drag to a second point that the line will pass through"];
+            //[self.delegate toolTipDidChange:@"Drag to a second point that the line will pass through"];
+            [self.delegate toolTipDidChange:@"拖动到直线即将经过的第二个点。"];
         }
         [self.delegate addTemporaryGeometricObjects:@[_tempLine]];
         [touch.view setNeedsDisplay];
@@ -106,9 +110,11 @@
 
             if (_tempIntersectionEnd) [self.delegate addTemporaryGeometricObjects:@[_tempIntersectionEnd]];
             
-            [self.delegate toolTipDidChange:@"Release to create line"];
+            //[self.delegate toolTipDidChange:@"Release to create line"];
+            [self.delegate toolTipDidChange:@"释放手指确定一条直线。"];
         } else {
-            [self.delegate toolTipDidChange:@"Drag to a second point that the line will pass through"];
+            //[self.delegate toolTipDidChange:@"Drag to a second point that the line will pass through"];
+            [self.delegate toolTipDidChange:@"拖动到直线即将经过的第二个点。"];
             _tempLine.temporary = YES;
         }
         [touch.view setNeedsDisplay];
@@ -143,11 +149,13 @@
             } else {
                 _tempLine = nil;
                 _tempEndPoint = nil;
-                [self.delegate toolTipDidChange:@"Tap on a second point that the line should pass through"];
+                //[self.delegate toolTipDidChange:@"Tap on a second point that the line should pass through"];
+                [self.delegate toolTipDidChange:@"拖动到直线即将经过的第二个点。"];
             }
         }
     } else if (self.startPoint) {
-        [self.delegate toolTipDidChange:@"Tap on a second point that the line should pass through"];
+        //[self.delegate toolTipDidChange:@"Tap on a second point that the line should pass through"];
+        [self.delegate toolTipDidChange:@"拖动到直线即将经过的第二个点。"];
     }
     
     [touch.view setNeedsDisplay];

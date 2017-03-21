@@ -30,7 +30,8 @@
 
 - (NSString *)additionalCompletionMessage
 {
-    return @"Well done! You are now ready to begin with Level 1.";
+    //return @"Well done! You are now ready to begin with Level 1.";
+    return @"好样的! 你现在已经做好面对第一个挑战的准备了。";
 }
 
 - (DHToolsAvailable)availableTools
@@ -132,7 +133,8 @@
         message3.alpha = 0;
         
         _currentStep = 2;
-        [message1 text:@"Points are the most fundamental objects in this game."];
+        //[message1 text:@"Points are the most fundamental objects in this game."];
+        [message1 text:@"点是这一系列挑战中最基础的对象。"];
         
         [view addSubview:message1];
         [view addSubview:message3];
@@ -149,21 +151,24 @@
             [self fadeIn:tempView withDuration:1.0];
         }];
         [self afterDelay:5.0 :^{
-            [message1 appendLine:@"They are labeled with capital letters." withDuration:1.0];
+            //[message1 appendLine:@"They are labeled with capital letters." withDuration:1.0];
+            [message1 appendLine:@"通常点都用大写字母来标记。" withDuration:1.0];
         }];
         [self afterDelay:7.0 :^{
             [self fadeIn:geometryView withDuration:1.0];
             [self fadeOut:tempView withDuration:1.0];
         }];
         [self afterDelay:9.0 :^{
-            [message3 text:@"Other objects can be constructed from points using the toolbar below."];
+            //[message3 text:@"Other objects can be constructed from points using the toolbar below."];
+            [message3 text:@"其他的对象都可以通过下面工具栏用点来进行构造。"];
             [self fadeIn:message3 withDuration:1.0];
         }];
         [self afterDelay:11.0 :^{
             [self slideInToolbar];
         }];
         [self afterDelay:13.0 :^{
-            [message3 appendLine:@"Let's start by constructing a line segment. Tap the tool to select it."
+            //[message3 appendLine:@"Let's start by constructing a line segment. Tap the tool to select it."
+            [message3 appendLine:@"让我们从构建一个线段开始。首先请点击工具栏进行选择。"
                     withDuration:1.0];
             
             [self enableToolAtIndex:2];
@@ -172,7 +177,8 @@
     else if (_currentStep == 2 && toolControl.selectedSegmentIndex == 2 ) {
         _currentStep = 3;
         [self fadeOut:message1 withDuration:1.0];
-        [message1 text:@"Try to construct a line segment that connects point A and B."];
+        //[message1 text:@"Try to construct a line segment that connects point A and B."];
+        [message1 text:@"尝试构建一条连接点A和B的线段。"];
         [self fadeInViews:@[message1, toolInstruction] withDuration:1.0];
         [self fadeOut:message3 withDuration:1.0];
     }
@@ -186,13 +192,15 @@
         [self afterDelay:1.0 :^{
             [self fadeOut:toolInstruction withDuration:1.0];
             
-            [message3 text: @"Points can also be used to construct a circle."];
+            //[message3 text: @"Points can also be used to construct a circle."];
+            [message3 text: @"点也可以用来构建圆。"];
             
             [self afterDelay:1.0 :^{
                 [self fadeIn:message3 withDuration:1.0];
             }];
             [self afterDelay:3.0 :^{
-                [message3 appendLine:@"Tap the circle tool to select it." withDuration:1.0];
+                //[message3 appendLine:@"Tap the circle tool to select it." withDuration:1.0];
+                [message3 appendLine:@"请点击工具栏中的圆工具。" withDuration:1.0];
             }];
             [self afterDelay:4.0 :^{
                 [self enableToolAtIndex:4];
@@ -201,7 +209,8 @@
     }
     else if (_currentStep == 4 && toolControl.selectedSegmentIndex == 4) {
         _currentStep = 5;
-        [message1 text:@"Try to construct a circle with center A and radius AB."];
+        //[message1 text:@"Try to construct a circle with center A and radius AB."];
+        [message1 text:@"请尝试构造一个以A为圆心，以AB为半径的圆。"];
         [self fadeOut:message3 withDuration:1.0];
         [self fadeInViews:@[toolInstruction, message1] withDuration:1.0];
     }
@@ -211,7 +220,8 @@
         
         [self fadeOut:message1 withDuration:1.0];
         [self afterDelay:1.0 :^{
-            [message1 text: @"Now, let's make a circle with center B (!) and radius AB."];
+            //[message1 text: @"Now, let's make a circle with center B (!) and radius AB."];
+            [message1 text: @"现在，我们来构造一个以B为圆心，以AB为半径的圆。"];
             [self fadeIn:message1 withDuration:1.0];
         }];
     }
@@ -223,18 +233,21 @@
         
         [self afterDelay:1.0 :^{
             [self fadeOut:toolInstruction withDuration:1.0];
-            [message3 text:@"Sometimes it is useful to extend a segment using the line tool."];
+            //[message3 text:@"Sometimes it is useful to extend a segment using the line tool."];
+            [message3 text:@"有时，使用直线工具来扩展段是很有用的技巧。"];
             [self fadeIn:message3 withDuration:1.0];
             [self disableToolAtIndex:4];
         }];
         [self afterDelay:3.0 :^{
-            [message3 appendLine:@"Tap the tool to select it." withDuration:1.0];
+            //[message3 appendLine:@"Tap the tool to select it." withDuration:1.0];
+            [message3 appendLine:@"点击工具栏选择直线工具。" withDuration:1.0];
             [self enableToolAtIndex:3];
         }];
     }
     else if (_currentStep == 7 && toolControl.selectedSegmentIndex == 3) {
         _currentStep = 8;
-        [message1 text:@"Try to construct a line using the points A and B."];
+        //[message1 text:@"Try to construct a line using the points A and B."];
+        [message1 text:@"请尝试以点A和点B创建一条直线。"];
         [self fadeOut:message3 withDuration:1.0];
         [self fadeInViews:@[toolInstruction, message1] withDuration:1.0];
     }
@@ -246,19 +259,22 @@
         [self showWellDoneForObject:lAB];
         
         [self afterDelay:1.0 :^{
-            [message3 text:@"If lines or circles intersect we can create a point at the intersection."];
+            //[message3 text:@"If lines or circles intersect we can create a point at the intersection."];
+            [message3 text:@"如果直线或者圆相交了，我们可以在交点的位置创建一个新的点。"];
             [self fadeIn:message3 withDuration:1.0];
             [self disableToolAtIndex:3];
         }];
         [self afterDelay:3.0 :^{
-            [message3 appendLine:@"Tap the intersect tool to select it." withDuration:1.0];
+            //[message3 appendLine:@"Tap the intersect tool to select it." withDuration:1.0];
+            [message3 appendLine:@"请选择工具栏中的交点工具。" withDuration:1.0];
             [self enableToolAtIndex:1];
         }];
     }
     else if (_currentStep == 9 && toolControl.selectedSegmentIndex == 1) {
         _currentStep = 10;
         [self fadeOut:message3 withDuration:1.0];
-        [message1 text:@"Construct a point at an intersection."];
+        //[message1 text:@"Construct a point at an intersection."];
+        [message1 text:@"在交点的位置创建一个新的点。"];
         [self fadeIn:message1 withDuration:1.0];
         [self fadeIn:toolInstruction withDuration:1.0];
     }
@@ -268,19 +284,22 @@
         [self showWellDoneForObject:_point];
         
         [self afterDelay:2.0 :^{
-            [message3 text:@"Note that the intersection point is black. Black points are unmovable and precise."];
+            //[message3 text:@"Note that the intersection point is black. Black points are unmovable and precise."];
+            [message3 text:@"请注意交点是黑色的，黑色的点是精确的并且是不可移动的。"];
             [self fadeIn:message3 withDuration:1.0];
             [self fadeOut:toolInstruction withDuration:1.0];
             [self disableToolAtIndex:1];
         }];
         
         [self afterDelay:4.0 :^{
-            [message3 appendLine:@"Grey points are not placed precisely on an intersection and are movable."
+            //[message3 appendLine:@"Grey points are not placed precisely on an intersection and are movable."
+            [message3 appendLine:@"灰色的点不是精确地放置在交叉点上并且是可移动的。"
                     withDuration:1.0];
         }];
 
         [self afterDelay:6.0 :^{
-            [message3 appendLine:@"Try to move a grey point using the point tool."
+            //[message3 appendLine:@"Try to move a grey point using the point tool."
+            [message3 appendLine:@"请尝试使用点工具来拖动一个灰色的点。"
                     withDuration:1.0];
             [self enableToolAtIndex:0];
         }];
@@ -290,7 +309,8 @@
         
         [self fadeOut:message3 withDuration:1.0];
         [self fadeIn:toolInstruction withDuration:1.0];
-        [message1 text:@"Move one of the grey points."];
+        //[message1 text:@"Move one of the grey points."];
+        [message1 text:@"移动一个灰色的点。"];
         [self fadeIn:message1 withDuration:1.0];
     }
     else if (_currentStep == 12 && moved) {
@@ -300,7 +320,8 @@
         [self showWellDoneForObject:_point];
         
         [self afterDelay:2.0 :^{
-            [message3 text: @"These are the 5 primitive tools you will start with in Level 1."];
+            //[message3 text: @"These are the 5 primitive tools you will start with in Level 1."];
+            [message3 text: @"这些是您将在挑战1中开始使用的5个原始工具。"];
             [self fadeIn:message3 withDuration:1.0];
             
             [self enableToolAtIndex:0];
@@ -311,12 +332,14 @@
         }];
 
         [self afterDelay:4.0 :^{
-            [message3 appendLine:@"To unlock the other tools, you need to complete more levels!"
+            //[message3 appendLine:@"To unlock the other tools, you need to complete more levels!"
+            [message3 appendLine:@"想解锁其他更多的工具，你需要完成更多的挑战！"
                     withDuration:1.0];
         }];
 
         [self afterDelay:6.0 :^{
-            [message3 appendLine:@"Construct a new object with any of the 5 available tools to complete the tutorial."
+            //[message3 appendLine:@"Construct a new object with any of the 5 available tools to complete the tutorial."
+            [message3 appendLine:@"使用5种可用工具中的任何一种构建新对象以完成新手教学。"
                     withDuration:1.0];
             _levelComplete=YES;
         }];
@@ -342,7 +365,8 @@
 {
     DHGeometryView* geometryView = self.levelViewController.geometryView;
     CGPoint messagePos = [geometryView.geoViewTransform geoToView:Position(object)];
-    [self.levelViewController showTemporaryMessage:@"Well done!" atPoint:messagePos
+    //[self.levelViewController showTemporaryMessage:@"Well done!" atPoint:messagePos
+    [self.levelViewController showTemporaryMessage:@"太棒了!" atPoint:messagePos
                                          withColor:[UIColor darkGrayColor]];
     
 }
