@@ -26,12 +26,14 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a point at the center of the given circle.");
+    //return (@"Construct a point at the center of the given circle.");
+    return (@"请确定一个给定圆的圆心点。");
 }
 
 - (NSString *)additionalCompletionMessage
 {
-    return (@"You enhanced the midpoint tool, it can now also create points at the center of circles!");
+    //return (@"You enhanced the midpoint tool, it can now also create points at the center of circles!");
+    return (@"你已经强化了中点工具，现在它可以直接照到一个圆的圆心!");
 }
 
 - (NSUInteger)minimumNumberOfMoves
@@ -190,18 +192,21 @@
         perp.temporary = YES;
         segment.temporary = segment2.temporary = segment3.temporary = YES;
         
-        [message1 text:@"For a moment, suppose that we do know the center of the circle."];
+        //[message1 text:@"For a moment, suppose that we do know the center of the circle."];
+        [message1 text:@"一会儿，假设我们已经知道圆的中心点。"];
         [self fadeIn:message1 withDuration:2.0];
         [self fadeIn:centerView withDuration:2];
         
         [self afterDelay:4.0 performBlock:^{
-            [message1 appendLine:@"And let's draw a line segment connecting two points on the circle."
+            //[message1 appendLine:@"And let's draw a line segment connecting two points on the circle."
+            [message1 appendLine:@"现在我们在圆周上任意找两个点，这两个点构建出一个线段。"
                     withDuration:2.0];
             [self fadeIn:segmentView withDuration:2];
         }];
         
         [self afterDelay:8.0 performBlock:^{
-            [message1 appendLine:@"We can drop a perpendicular from the center to the line segment."
+            //[message1 appendLine:@"We can drop a perpendicular from the center to the line segment."
+            [message1 appendLine:@"我们可以从圆心做出到这条线段的垂直线。"
                     withDuration:2.0];
             [self fadeIn:perpView withDuration:2];
         }];
@@ -211,12 +216,14 @@
         }];
         
         [self afterDelay:16.0 performBlock:^{
-            [message1 text:@"It looks like D is the midpoint of line segment BC."];
+            //[message1 text:@"It looks like D is the midpoint of line segment BC."];
+            [message1 text:@"现在可以看到，点D是线段AB的中点。"];
             [self fadeIn:message1 withDuration:2.0];
         }];
         
         [self afterDelay:20.0 performBlock:^{
-            [message1 appendLine:@"This follows from the Pythagorean Theorem." withDuration:2.0];
+            //[message1 appendLine:@"This follows from the Pythagorean Theorem." withDuration:2.0];
+            [message1 appendLine:@"这个结论可以从毕达哥拉斯定理(勾股定理)证明得出。" withDuration:2.0];
             [self fadeIn:segmentsView withDuration:2];
         }];
         
@@ -229,7 +236,8 @@
         }];
         
         [self afterDelay:32.0 performBlock:^{
-            [message1 appendLine:@"As AC = AB, it follows that CD must be equal to BD."
+            //[message1 appendLine:@"As AC = AB, it follows that CD must be equal to BD."
+            [message1 appendLine:@"因为AC = AB，所以可以得出CD 等于 BD。"
                     withDuration:2.0 forceNewLine:YES];
             hint1_OK = YES;
         }];
@@ -239,17 +247,20 @@
         perp.temporary = YES;
         
         [self afterDelay:0.0 performBlock:^{
-            [message1 text:@"Hence, if we draw a line segment connecting the two points on the circle."];
+            //[message1 text:@"Hence, if we draw a line segment connecting the two points on the circle."];
+            [message1 text:@"因此，如果我们绘制一个连接圆上两点的线段。"];
             [self fadeIn:message1 withDuration:1];
             [self fadeIn:segmentView withDuration:2];
         }];
         [self afterDelay:4.0 performBlock:^{
-            [message1 appendLine:@"We can draw a perpendicular from the midpoint."
+            //[message1 appendLine:@"We can draw a perpendicular from the midpoint."
+            [message1 appendLine:@"我们可以从线段的中点构建一条垂直线。"
                     withDuration:2.0];
             [self fadeIn:perpView withDuration:2];
         }];
         [self afterDelay:8.0 performBlock:^{
-            [message1 appendLine:@"And we know that this line passes through the center of the circle."
+            //[message1 appendLine:@"And we know that this line passes through the center of the circle."
+            [message1 appendLine:@"我们知道这条垂直线穿过圆的中心。"
                     withDuration:2.0];
             hint2_OK = YES;
             [segmentView.geometricObjects addObjectsFromArray:@[perp,intersection]];
@@ -258,7 +269,8 @@
         }];
         
         [self afterDelay:12.0 performBlock:^{
-            [message1 appendLine:@"For any points B and C on the circle."
+            //[message1 appendLine:@"For any points B and C on the circle."
+            [message1 appendLine:@"对于圆周上的任意点B和点C。"
                     withDuration:2.0];
             [self movePointOnCircle:p1 toAngle:1.5+2*M_PI withDuration:4 inView:segmentView];
             hint2_OK = YES;

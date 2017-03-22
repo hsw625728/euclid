@@ -27,17 +27,20 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a circle with radius AB and center C.");
+    //return (@"Construct a circle with radius AB and center C.");
+    return (@"构建一个具有半径AB和中心在点C的圆。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct a circle with radius equal to line segment AB and center C.");
+    //return (@"Construct a circle with radius equal to line segment AB and center C.");
+    return (@"构建一个半径等于线段AB和中心在点C的圆。");
 }
 
 - (NSString *)additionalCompletionMessage
 {
-    return (@"You unlocked a new tool: Compass!");
+    //return (@"You unlocked a new tool: Compass!");
+    return (@"你解锁了一个新工具: 圆规!");
 }
 
 - (DHToolsAvailable)availableTools
@@ -372,12 +375,14 @@
         [hintView bringSubviewToFront:message1];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"A circle is defined by its center and a point on the radius."];
+            //[message1 text:@"A circle is defined by its center and a point on the radius."];
+            [message1 text:@"圆由其中心点和圆周上的点定义。"];
             [self fadeInViews:@[message1,circleView] withDuration:2.0];
         }];
         
         [self afterDelay:4.0 :^{
-            [message1 appendLine:@"Can you construct a point at distance AB from C?" withDuration:2.0];
+            //[message1 appendLine:@"Can you construct a point at distance AB from C?" withDuration:2.0];
+            [message1 appendLine:@"你能构建一个点使其到线段AB的距离为C吗?" withDuration:2.0];
             [self fadeInViews:@[tpView] withDuration:2.0];
         }];
         

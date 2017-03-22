@@ -23,12 +23,14 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a triangle with AB as base and sides of length CD and EF");
+    //return (@"Construct a triangle with AB as base and sides of length CD and EF");
+    return (@"构建一个以线段AB为一条边的三角形，其余两条边的边长分别等于线段CD和线段EF的长度。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct a triangle whose sides have the same length as the given segments using segment AB as base.");
+    //return (@"Construct a triangle whose sides have the same length as the given segments using segment AB as base.");
+    return (@"构建一个以线段AB为一条边的三角形，其余两条边的边长分别等于线段CD和线段EF的长度。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -295,7 +297,8 @@
     
     //hint 1
     if (!hint1_OK){
-        [message1 text:@"We are looking for a point G such that:"];
+        //[message1 text:@"We are looking for a point G such that:"];
+        [message1 text:@"我们先来寻找符合这样的点G:"];
         [UIView animateWithDuration:2 delay:0 options: UIViewAnimationOptionAllowAnimatedContent animations:^{
             message1.alpha = 1; } completion:^(BOOL finished){ }];
         [self fadeIn:pointGView withDuration:2];
@@ -319,7 +322,8 @@
         } afterDelay:8.0];
         
         [self performBlock:^{
-            [message1 appendLine:@"How can we construct such a point?" withDuration:2.0 forceNewLine:YES];
+            //[message1 appendLine:@"How can we construct such a point?" withDuration:2.0 forceNewLine:YES];
+            [message1 appendLine:@"这个点G我们该怎么找到呢?" withDuration:2.0 forceNewLine:YES];
             
             hint1_OK = YES;
         } afterDelay:12.0];
@@ -327,7 +331,8 @@
     
     //hint 2
     else if(!hint2_OK){
-        [message1 text:@"Circles have a very useful property."];
+        //[message1 text:@"Circles have a very useful property."];
+        [message1 text:@"圆具有一个非常有用的特性。"];
         DHCircle* cCD = [[DHCircle alloc] initWithCenter:pointC andPointOnRadius:pointD];
         cCD.temporary = YES;
         DHCircle* cEF = [[DHCircle alloc] initWithCenter:pointF andPointOnRadius:pointE];
@@ -353,13 +358,15 @@
             [self movePointOnCircle:p1 toAngle:M_PI + 0.33 withDuration:4 inView:pView];
             [self movePointOnCircle:p2 toAngle:M_PI + 0.25 withDuration:4 inView:pView];
             
-            [message1 appendLine:@"Every point on the circle, has the same distance to the center."
+            //[message1 appendLine:@"Every point on the circle, has the same distance to the center."
+            [message1 appendLine:@"圆周上的每一个点，到圆心点距离都是相等的。"
                     withDuration:2.0];
             hint2_OK = YES;
 
         } afterDelay:4.0];
         [self afterDelay:8.0 performBlock:^{
-            [message1 appendLine:@"Note that a circle can be \"moved\" using the compass tool."
+            //[message1 appendLine:@"Note that a circle can be \"moved\" using the compass tool."
+            [message1 appendLine:@"请注意圆可以被 \"移动\" ，你只需要使用工具栏中的圆形工具。"
                     withDuration:2.0];
             hint2_OK = YES;
         }];

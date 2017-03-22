@@ -28,17 +28,20 @@
 
 - (NSString*)levelDescription
 {
+    //return @"Construct an angle bisector of the given angle.";
     return @"Construct an angle bisector of the given angle.";
 }
 
 
 - (NSString*)levelDescriptionExtra
 {
+    //return (@"Construct an angle bisector of the given angle. \n \nAn angle bisector is a line or a line segment that divides an angle into two equal angles. ");
     return (@"Construct an angle bisector of the given angle. \n \nAn angle bisector is a line or a line segment that divides an angle into two equal angles. ");
 }
 
 - (NSString *)additionalCompletionMessage
 {
+    //return @"Well done! You unlocked a new tool: Constructing a bisector!";
     return @"Well done! You unlocked a new tool: Constructing a bisector!";
 }
 
@@ -396,11 +399,13 @@
         
         if (_hintStep == 0) {
             [self afterDelay:0.0:^{
+                //[message1 text:@"If we had a point at equal distance from the two given lines,"];
                 [message1 text:@"If we had a point at equal distance from the two given lines,"];
                 [self fadeInViews:@[message1,mpView] withDuration:2.0];
             }];
             
             [self afterDelay:4.0 :^{
+                //[message1 appendLine:@"the bisector is simply a line through A and the point."
                 [message1 appendLine:@"the bisector is simply a line through A and the point."
                         withDuration:2.0];
                 [self fadeInViews:@[bisectView] withDuration:2.0];
@@ -409,22 +414,26 @@
         }
         if (_hintStep == 1) {
             [self afterDelay:0.0:^{
+                //[message1 text:@"With the point tool you can construct points fixed to objects such as lines."];
                 [message1 text:@"With the point tool you can construct points fixed to objects such as lines."];
                 [self fadeInViews:@[message1,p1View] withDuration:2.0];
             }];
             
             [self afterDelay:4.0 :^{
+                //[message1 appendLine:@"These points can still be moved, but only along the line."
                 [message1 appendLine:@"These points can still be moved, but only along the line."
                         withDuration:2.0];
                 [self movePointOnLine:p1 toTValue:0.5 withDuration:2.0 inView:p1View];
             }];
 
             [self afterDelay:8.0 :^{
+                //[message1 appendLine:@"Can you think of a way to construct a third point,"
                 [message1 appendLine:@"Can you think of a way to construct a third point,"
                         withDuration:2.0];
             }];
             
             [self afterDelay:10.0 :^{
+                //[message1 appendLine:@"that is ensured to always be at an equal distance from A?"
                 [message1 appendLine:@"that is ensured to always be at an equal distance from A?"
                         withDuration:2.0];
                 [self fadeInViews:@[pCView] withDuration:0.0];

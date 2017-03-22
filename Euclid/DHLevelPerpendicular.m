@@ -27,12 +27,14 @@
 
 - (NSString*)levelDescription
 {
-    return @"Construct a line on A that is perpendicular to the given line.";
+    //return @"Construct a line on A that is perpendicular to the given line.";
+    return @"在A上构造一条垂直于给定线的垂线。";
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct a line (segment) on A that is perpendicular to the given line. \n \nWhen a straight line standing on a straight line makes the adjacent angles equal to one another, each of the equal angles is right, and the straight line standing on the other is called a perpendicular to that on which it stands.");
+    //return (@"Construct a line (segment) on A that is perpendicular to the given line. \n \nWhen a straight line standing on a straight line makes the adjacent angles equal to one another, each of the equal angles is right, and the straight line standing on the other is called a perpendicular to that on which it stands.");
+    return (@"构造一条垂直于给定线的直线（线段）。 \n \n当两条直线相交所成的四个角中，有一个角是直角时，即两条直线互相垂直，其中一条直线叫做另一直线的垂线，交点叫垂足。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -236,19 +238,23 @@
         Message* message1 = [self createMiddleMessageWithSuperView:hintView];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"You have already constructed a midpoint, in level 2."];
+            //[message1 text:@"You have already constructed a midpoint, in level 2."];
+            [message1 text:@"在挑战-2中，你已经创建了一个中点工具。"];
             [self fadeInViews:@[message1] withDuration:2.0];
         }];
         
         [self afterDelay:3.0 :^{
-            [message1 appendLine:(@"Can you think of a way to construct a two points such that, point A is always "
-                                  @"at their midpoint?")
+            //[message1 appendLine:(@"Can you think of a way to construct a two points such that, point A is always "
+            //                      @"at their midpoint?")
+            [message1 appendLine:(@"你能想出一种办法创建两个点，"
+                                  @"使得点A总处于这两点点中点?")
                     withDuration:2.0];
             [self fadeInViews:@[p12View] withDuration:2.0];
         }];
 
         [self afterDelay:6.0 :^{
-            [message1 appendLine:(@"If so, use them similarly to create a point straight above A.")
+            //[message1 appendLine:(@"If so, use them similarly to create a point straight above A.")
+            [message1 appendLine:(@"如果是这样，使用它们创建一个类似的点。")
                     withDuration:2.0];
             [self fadeInViews:@[p3View] withDuration:2.0];
         }];

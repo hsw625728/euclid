@@ -27,17 +27,20 @@
 
 - (NSString*)levelDescription
 {
-    return @"Construct the midpoint of line segment AB.";
+    //return @"Construct the midpoint of line segment AB.";
+    return @"构建线段AB的中间。";
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct the midpoint of line segment AB. \n\nThe midpoint divides the line segment AB into two parts of equal length.");
+    //return (@"Construct the midpoint of line segment AB. \n\nThe midpoint divides the line segment AB into two parts of equal length.");
+    return (@"构建线段AB的中间。 \n\n中点将线段AB分成两段长度相等的线段");
 }
 
 - (NSString *)additionalCompletionMessage
 {
-    return @"Well done! You unlocked a new tool: Constructing a midpoint!";
+    //return @"Well done! You unlocked a new tool: Constructing a midpoint!";
+    return @"做得好！ 你解锁了一个新工具：构建一个中点！";
 }
 
 - (DHToolsAvailable)availableTools
@@ -358,25 +361,29 @@
 
         
         [self afterDelay:0.0:^{
-            [message1 text:@"To create a point that is always located at the midpoint,"];
+            //[message1 text:@"To create a point that is always located at the midpoint,"];
+            [message1 text:@"创建一个总是处于中间的点，"];
             [self fadeInViews:@[message1] withDuration:2.0];
         }];
         
         [self afterDelay:3.0 :^{
-            [message1 appendLine:@"we need to construct a line that passes through the midpoint."
+            //[message1 appendLine:@"we need to construct a line that passes through the midpoint."
+            [message1 appendLine:@"我们需要创建一条穿过中点点直线。"
                     withDuration:2.0];
             [self fadeInViews:@[segmentView] withDuration:2.0];
         }];
         
         [self afterDelay:6.0 :^{
-            [message1 appendLine:@"Then construct an intersection point with the segment AB."
+            //[message1 appendLine:@"Then construct an intersection point with the segment AB."
+            [message1 appendLine:@"然后构建与线段AB的交点。"
                     withDuration:2.0];
             [self fadeInViews:@[mpView] withDuration:2.0];
         }];
         
         if (!secondPontOnMidLineOK) {
             [self afterDelay:9.0 :^{
-                [message1 appendLine:@"Look for a tool that provides points over/under segment AB's midpoint!"
+                //[message1 appendLine:@"Look for a tool that provides points over/under segment AB's midpoint!"
+                [message1 appendLine:@"找到了一个可以提供找到线段AB中的工具。"
                         withDuration:2.0];
             }];
         }

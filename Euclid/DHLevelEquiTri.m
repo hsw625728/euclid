@@ -23,13 +23,16 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct an equilateral triangle.");
+    //return (@"Construct an equilateral triangle.");
+    return (@"构造等边三角形。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return(@"Construct an equilateral triangle such that segment AB is one of its sides. \n\n"
-                          @"An equilateral triangle is a triangle whose sides are of equal length.");
+    //return(@"Construct an equilateral triangle such that segment AB is one of its sides. \n\n"
+    //                      @"An equilateral triangle is a triangle whose sides are of equal length.");
+    return(@"构造等边三角形，使得线段AB是其中一个边。 \n\n"
+                          @"等边三角形是三条边都相等的三角形。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -40,7 +43,8 @@
 
 - (NSString *)additionalCompletionMessage
 {
-    return @"Well done! You unlocked a new tool: Constructing equilateral triangles!";
+    //return @"Well done! You unlocked a new tool: Constructing equilateral triangles!";
+    return @"做得好！ 你解锁了一个新工具：构造等边三角形!";
 }
 
 - (NSUInteger)minimumNumberOfMoves
@@ -394,7 +398,8 @@
         [hintView bringSubviewToFront:message1];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"Circles have a very useful property."];
+            //[message1 text:@"Circles have a very useful property."];
+            [message1 text:@"圆有一个非常有用的属性。"];
             if (hideCircle) {
                 [self fadeInViews:@[message1] withDuration:2.0];
             } else {
@@ -403,19 +408,22 @@
         }];
         
         [self afterDelay:4.0 :^{
-            [message1 appendLine:@"Every point on the circle has the same distance to its center."
+            //[message1 appendLine:@"Every point on the circle has the same distance to its center."
+            [message1 appendLine:@"圆周上的每一个点和圆心都有想等的长度。"
                     withDuration:2.0];
             [self fadeInViews:@[pointCView] withDuration:2.0];
         }];
         
         [self afterDelay:8.0 :^{
-            [message1 appendLine:@"Hence, segment AC has the same length as AB."
+            //[message1 appendLine:@"Hence, segment AC has the same length as AB."
+            [message1 appendLine:@"因此，线段AC具有与线段AB相同的长度。"
                     withDuration:2.0];
             [self fadeInViews:@[lineACView] withDuration:2.0];
         }];
         
         [self afterDelay:12.0 :^{
-            [message1 appendLine:@"For any point C on the circle."
+            //[message1 appendLine:@"For any point C on the circle."
+            [message1 appendLine:@"对于圆上的任意点C。"
                     withDuration:2.0];
             if (cAB_OK && !cBA_OK) {
                 [self movePointOnCircle:pC toAngle:3.333*M_PI withDuration:6.0 inViews:@[pointCView,lineACView]];

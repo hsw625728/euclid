@@ -26,13 +26,16 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct the incircle of a triangle.");
+    //return (@"Construct the incircle of a triangle.");
+    return (@"构建一个给定三角形的内切圆。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct the incircle of a triangle. \n\nAn incircle is a circle fully contained in a triangle "
-            @"that is tangent to all three sides.");
+    //return (@"Construct the incircle of a triangle. \n\nAn incircle is a circle fully contained in a triangle "
+    //        @"that is tangent to all three sides.");
+    return (@"构建一个给定三角形的内切圆。 \n\n内切圆完全包含在三角形内部。 "
+            @"内切圆与三角形各条边都相切。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -255,21 +258,25 @@
     
         if (!hint1_OK) {
             [self afterDelay:0.0 performBlock:^{
-                [message1 text:@"The incircle is tangent to all three sides."];
+                //[message1 text:@"The incircle is tangent to all three sides."];
+                [message1 text:@"内切圆与三角形的三条边都是相切的。"];
                 [self fadeIn:message1 withDuration:1.0];
                 [self fadeIn:incircle withDuration:2.0];
             }];
             [self afterDelay:4.0 performBlock:^{
-                [message1 appendLine:@"Such a tangent is perpendicular to a line from the tangent point to the center."
+                //[message1 appendLine:@"Such a tangent is perpendicular to a line from the tangent point to the center."
+                [message1 appendLine:@"这一切线垂直于从切点到圆心的连线。"
                         withDuration:1.0];
                 [self fadeIn:perpView withDuration:2.0];
             }];
             [self afterDelay:9.0 performBlock:^{
-                [message1 appendLine:@"Those 3 line segments have length equal to the radius of the circle."
+                //[message1 appendLine:@"Those 3 line segments have length equal to the radius of the circle."
+                [message1 appendLine:@"这3条线段的长度都等于圆的半径。"
                         withDuration:1.0];
             }];
             [self afterDelay:14.0 performBlock:^{
-                [message1 appendLine:@"Hence, the following lines are bisecting the angles of the triangle."
+                //[message1 appendLine:@"Hence, the following lines are bisecting the angles of the triangle."
+                [message1 appendLine:@"因此，以下线条将三角形的角度平分。"
                         withDuration:1.0];
                 [self fadeIn:bView withDuration:2.0];
                 hint1_OK = YES;
@@ -278,13 +285,15 @@
         else if (!hint2_OK){
             
             [self afterDelay:0.0 performBlock:^{
-                [message1 text:@"Hence, if we draw a bisector of one the angles"];
+                //[message1 text:@"Hence, if we draw a bisector of one the angles"];
+                [message1 text:@"因此，如果我们画出一个角的平分线"];
                 
                 [self fadeIn:message1 withDuration:1.0];
                 [self fadeIn:bisectView withDuration:2.0];
             }];
             [self afterDelay:4.0 performBlock:^{
-                [message1 appendLine:@"We know that the line must pass through the center of the incircle."
+                //[message1 appendLine:@"We know that the line must pass through the center of the incircle."
+                [message1 appendLine:@"我们知道，这条平分线肯定是通过内切圆的圆心的。"
                         withDuration:1.0];
                 hint2_OK = YES;
             }];

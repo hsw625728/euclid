@@ -26,10 +26,13 @@
 - (NSString*)levelDescription
 {
     return (@"Construct a circle that passes through A and is tangent to the line at B.");
+    return (@"Construct a circle that passes through A and is tangent to the line at B.");
 }
 
 - (NSString*)levelDescriptionExtra
 {
+    return (@"Given a point A, a line, and a point B. Construct a circle that passes through A and is "
+            @"tangent to the line at B. \n\nA circle and a line are tangent if they only touch at one point.");
     return (@"Given a point A, a line, and a point B. Construct a circle that passes through A and is "
             @"tangent to the line at B. \n\nA circle and a line are tangent if they only touch at one point.");
 }
@@ -245,15 +248,18 @@
         
         if (!hint1_OK) {
             [self afterDelay:0.0 performBlock:^{
+                //[message1 text:@"Which properties does a circle have if it is tangent to a line?"];
                 [message1 text:@"Which properties does a circle have if it is tangent to a line?"];
                 [self fadeIn:message1 withDuration:1.0];
                 [self fadeIn:circleView withDuration:1.0];
             }];
             [self afterDelay:4.0 performBlock:^{
+                //[message1 appendLine:@"What do we know about the line connecting the center with the tangent point?"
                 [message1 appendLine:@"What do we know about the line connecting the center with the tangent point?"
                         withDuration:1.0];
             }];
             [self afterDelay:8.0 performBlock:^{
+                //[message1 appendLine:@"It is an interesting fact, we learned in Level 13."
                 [message1 appendLine:@"It is an interesting fact, we learned in Level 13."
                         withDuration:1.0];
                 [self fadeIn:perpView withDuration:2.0];
@@ -264,11 +270,13 @@
         else if (!hint2_OK) {
             
             [self afterDelay:0.0 performBlock:^{
+                //[message1 text:@"We know that the circle must pass through A and B."];
                 [message1 text:@"We know that the circle must pass through A and B."];
                 [self fadeIn:message1 withDuration:1.0];
                 [self fadeIn:circleView withDuration:1.0];
             }];
             [self afterDelay:4.0 performBlock:^{
+                //[message1 appendLine:@"So A and B are equidistant from the center."
                 [message1 appendLine:@"So A and B are equidistant from the center."
                         withDuration:1.0];
                 
@@ -278,11 +286,13 @@
             }];
             
             [self afterDelay:8.0 performBlock:^{
+                //[message1 appendLine:@"What do we know about the perpendicular bisector of line segment AB?"
                 [message1 appendLine:@"What do we know about the perpendicular bisector of line segment AB?"
                         withDuration:1.0];
             }];
             
             [self afterDelay:12.0 performBlock:^{
+                //[message1 appendLine:@"It is an interesting fact we learned in Level 14."
                 [message1 appendLine:@"It is an interesting fact we learned in Level 14."
                         withDuration:1.0];
                 [self fadeIn:bisectorView withDuration:2.0];

@@ -27,13 +27,16 @@
 
 - (NSString*)levelDescription
 {
-    return @"Construct a line through A perpendicular to the given line.";
+    //return @"Construct a line through A perpendicular to the given line.";
+    return @"构建一条直线，使其通过点A并且垂直于给定的直线。";
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct a line (segment) perpendicular to the given line going through point A."
-            @"\n \nWhen a straight line standing on a straight line makes the adjacent angles equal to one another, each of the equal angles is right, and the straight line standing on the other is called a perpendicular to that on which it stands.");
+    //return (@"Construct a line (segment) perpendicular to the given line going through point A."
+    //        @"\n \nWhen a straight line standing on a straight line makes the adjacent angles equal to one another, each of the equal angles is right, and the straight line standing on the other is called a perpendicular to that on which it stands.");
+    return (@"构建一条直线（线段），使其通过点A并且垂直于给定的直线。"
+            @"\n \n当两条直线相交所成的四个角中，有一个角是直角时，即两条直线互相垂直，其中一条直线叫做另一直线的垂线，交点叫垂足。");
 }
 
 
@@ -48,7 +51,8 @@
 
 - (NSString *)additionalCompletionMessage
 {
-    return @"You unlocked a new tool: Constructing perpendicular lines!";
+    //return @"You unlocked a new tool: Constructing perpendicular lines!";
+    return @"你解锁了一个新工具: 构建垂线工具!";
 }
 
 - (DHToolsAvailable)availableTools
@@ -387,18 +391,21 @@
         Message* message1 = [self createMiddleMessageWithSuperView:hintView];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"For an isosceles triangle (with two equal sides) it can be proved"];
+            //[message1 text:@"For an isosceles triangle (with two equal sides) it can be proved"];
+            [message1 text:@"对于等腰三角形（有两个相等的边），可以证明"];
             [self fadeInViews:@[message1, triView] withDuration:3.0];
         }];
         
         [self afterDelay:3.0 :^{
-            [message1 appendLine:(@"that a line from the tip to the midpoint of its base")
+            //[message1 appendLine:(@"that a line from the tip to the midpoint of its base")
+            [message1 appendLine:(@"相等的边对应的顶点和第三条边中点的连线")
                     withDuration:2.0];
             [self fadeInViews:@[perpView] withDuration:3.0];
         }];
         
         [self afterDelay:7.0 :^{
-            [message1 appendLine:(@"will always be perpendicular to the base.")
+            //[message1 appendLine:(@"will always be perpendicular to the base.")
+            [message1 appendLine:(@"永远垂直于第三条边。")
                     withDuration:2.0];
 
             [self movePoint:p1 toPosition:CGPointMake(p1.position.x-100, p1.position.y)

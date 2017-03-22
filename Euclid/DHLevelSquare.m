@@ -20,7 +20,8 @@
 
 - (NSString*)levelDescription
 {
-    return @"Create 4 lines forming a square whose diagonal is equal to the radius of the circle";
+    //return @"Create 4 lines forming a square whose diagonal is equal to the radius of the circle";
+    return @"创建4条线构建一个正方形，使其对角线等于圆的直径。";
 }
 
 - (NSUInteger)minimumNumberOfMoves

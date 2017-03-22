@@ -14,7 +14,8 @@
 
 - (NSString*)levelDescription
 {
-    return (@"None, simply enjoy geometric beauty!");
+    //return (@"None, simply enjoy geometric beauty!");
+    return (@"好了！你可以在这里尽情享受几何之美！");
 }
 
 - (DHToolsAvailable)availableTools

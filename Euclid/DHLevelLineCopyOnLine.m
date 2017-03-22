@@ -25,12 +25,14 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a point E on CD such that CE has the same length as AB.");
+    //return (@"Construct a point E on CD such that CE has the same length as AB.");
+    return (@"在线段CD上构建一个点E，使线段CE的长度等于线段AB的长度。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct a new point E on the line segment CD such that CE has the same length as AB.");
+    //return (@"Construct a new point E on the line segment CD such that CE has the same length as AB.");
+    return (@"在线段CD上构建一个点E，使线段CE的长度等于线段AB的长度。");
 }
 
 - (NSUInteger)minimumNumberOfMoves
@@ -220,19 +222,22 @@
         [hintView bringSubviewToFront:message1];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"If you could simply move a copy of AB to C,"];
+            //[message1 text:@"If you could simply move a copy of AB to C,"];
+            [message1 text:@"你可以轻松地使用线段平移工具移动线段AB到点C,"];
             [self fadeInViews:@[message1, segmentView] withDuration:2.0];
             [self movePoint:p1 toPosition:_lineCD.start.position withDuration:2.5 inViews:@[segmentView]];
         }];
         
         [self afterDelay:3.0 :^{
-            [message1 appendLine:@"and rotate it to be parallel to CD, this would be simple."
+            //[message1 appendLine:@"and rotate it to be parallel to CD, this would be simple."
+            [message1 appendLine:@"使用点移动工具拖动点B，使线段AB绕着点A移动使其与线段CD平行"
                     withDuration:2.0];
             [self movePointOnCircle:p3 toAngle:cdAngle withDuration:2.0 inViews:@[segmentView]];
         }];
         
         [self afterDelay:6.0 :^{
-            [message1 appendLine:@"Can you make an equivalent construction with the available tools?"
+            //[message1 appendLine:@"Can you make an equivalent construction with the available tools?"
+            [message1 appendLine:@"你还有其他方法，使用别的工具来实现这个挑战目标吗?"
                     withDuration:2.0];
         }];
         

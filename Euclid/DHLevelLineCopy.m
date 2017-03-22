@@ -27,18 +27,22 @@
 
 - (NSString*)levelDescription
 {
-    return @"Translate the segment AB to the point C.";
+    //return @"Translate the segment AB to the point C.";
+    return @"将线段AB平移，使其经过点C。";
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return @"Translate the segment AB to point C. \n\nIn other words, construct a line segment with the same length and same direction as line segment AB but with starting point C.";
+    //return @"Translate the segment AB to point C. \n\nIn other words, construct a line segment with the same length and same direction as line segment AB but with starting point C.";
+    return @"将线段AB平移，使其经过点C。 \n\n换句话说，构建一条线段，使其与线段AB相同长度且同方向，但具有起点C。";
 }
 
 - (NSString *)additionalCompletionMessage
 {
-    return (@"You unlocked a new tool: Translating lines! Note that this new tool won't work when all points "
-            @"lay on the same line. Enhance the tool in Level 8.");
+    //return (@"You unlocked a new tool: Translating lines! Note that this new tool won't work when all points "
+    //        @"lay on the same line. Enhance the tool in Level 8.");
+    return (@"你解锁了一个新工具: 平移直线! 请注意，当所有的点位于同一条直线时 "
+            @"这个工具将不生效。加强的工具在挑战-8中解锁。");
 }
 
 - (NSUInteger)minimumNumberOfMoves
@@ -393,7 +397,8 @@
         }
                 
         [self afterDelay:0.0:^{
-            [message1 text:@"Assume we could simply move a copy of the segment AB to start from C."];
+            //[message1 text:@"Assume we could simply move a copy of the segment AB to start from C."];
+            [message1 text:@"假设我们可以简单地将线段AB的副本平移到从点C开始。"];
             [self fadeInViews:@[message1,segView] withDuration:2.0];
         }];
         [self afterDelay:1.0:^{
@@ -402,7 +407,8 @@
         }];
         
         [self afterDelay:5.0 :^{
-            [message1 appendLine:@"By definitition the segment would then remain parallel to AB."
+            //[message1 appendLine:@"By definitition the segment would then remain parallel to AB."
+            [message1 appendLine:@"根据定义，该线段将保持与AB平行。"
                     withDuration:2.0];
             [self fadeInViews:@[paraView] withDuration:2.0];
         }];
@@ -458,13 +464,16 @@
         }
         
         [self afterDelay:0.0:^{
-            [message1 text:@"In Euclidian geometry the following is true by definition."];
+            //[message1 text:@"In Euclidian geometry the following is true by definition."];
+            [message1 text:@"在欧几里得几何中，有如下定义："];
             [self fadeInViews:@[message1] withDuration:1.5];
         }];
         
         [self afterDelay:2.0 :^{
-            [message1 appendLine:(@"Two parallel lines remain at equal distance from each other, "
-                                  @"along their entire extents.")
+            //[message1 appendLine:(@"Two parallel lines remain at equal distance from each other, "
+            //                  @"along their entire extents.")
+            [message1 appendLine:(@"两条平行线沿其整个范围"
+                                  @"总是保持彼此相等的距离。")
                     withDuration:1.5];
             [self fadeInViews:@[paraView] withDuration:1.5];
         }];

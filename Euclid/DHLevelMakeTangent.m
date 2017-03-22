@@ -24,13 +24,16 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a line (segment) tangent to the given circle");
+    //return (@"Construct a line (segment) tangent to the given circle");
+    return (@"构建一条给定圆的切线(段)。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct a line (segment) tangent to the circle. \n\n"
-            @"A tangent line to a circle is a line that only touches the circle at one point.");
+    //return (@"Construct a line (segment) tangent to the circle. \n\n"
+    //        @"A tangent line to a circle is a line that only touches the circle at one point.");
+    return (@"构建一条给定圆的切线(段)。 \n\n"
+            @"圆的切线是指与圆仅有一个公共点的直线。");
 }
 
 
@@ -198,16 +201,19 @@
         Message* message1 = [[Message alloc] initAtPoint:CGPointMake(80,460) addTo:hintView];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"Assume that we already have a tangent to the circle."];
+            //[message1 text:@"Assume that we already have a tangent to the circle."];
+            [message1 text:@"假设这个圆我们已经有一条它的切线。"];
             [self fadeInViews:@[message1, tangentView] withDuration:2.0];
         }];
         [self afterDelay:2.5:^{
-            [message1 appendLine:@"By definition, it will only touch the circle at one point."
+            //[message1 appendLine:@"By definition, it will only touch the circle at one point."
+            [message1 appendLine:@"根据定义，这条直线与圆有且仅有一个公共点。"
                     withDuration:2.0];
             [self fadeInViews:@[p1View] withDuration:2.0];
         }];
         [self afterDelay:5.0:^{
-            [message1 appendLine:@"Can you work out what the angle between the tangent and"
+            //[message1 appendLine:@"Can you work out what the angle between the tangent and"
+            [message1 appendLine:@"现在你能计算出下面两条线的夹角永远是固定的值吗？"
                     withDuration:2.0];
         }];
 
@@ -216,7 +222,8 @@
         }];
         
         [self afterDelay:7.5:^{
-            [message1 appendLine:@"a segment from that point to the circle center must be?"
+            //[message1 appendLine:@"a segment from that point to the circle center must be?"
+            [message1 appendLine:@"1.圆的切线；2.切点和圆心组成的线段。"
                     withDuration:2.0];
         }];
         

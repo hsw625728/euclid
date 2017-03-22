@@ -20,12 +20,14 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a regular pentagon in the given circle with B as a vertex");
+    //return (@"Construct a regular pentagon in the given circle with B as a vertex");
+    return (@"在给定的圆中构造一个正五边形，其中B为顶点。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct a regular pentagon inscribed in the given circle with B as one of its vertices.");
+    //return (@"Construct a regular pentagon inscribed in the given circle with B as one of its vertices.");
+    return (@"在给定的圆中构造一个正五边形，其中B为顶点。");
 }
 
 - (DHToolsAvailable)availableTools

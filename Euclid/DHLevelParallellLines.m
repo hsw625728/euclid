@@ -25,17 +25,20 @@
 
 - (NSString*)levelDescription
 {
-    return @"Construct a line through point A parallell to the given line.";
+    //return @"Construct a line through point A parallell to the given line.";
+    return @"构建一条直线使其通过点A并且与给定直线平行。";
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return @"Construct a line through point A parallell to the given line. \n\nParallel lines are lines which do not meet one another in either direction.";
+    //return @"Construct a line through point A parallell to the given line. \n\nParallel lines are lines which do not meet one another in either direction.";
+    return @"构建一条直线使其通过点A并且与给定直线平行。\n\n平行线是指一条线和给定线直线任何位置都没有交点。";
 }
 
 - (NSString *)additionalCompletionMessage
 {
-    return @"You have unlocked a new tool: Constructing parallel lines!";
+    //return @"You have unlocked a new tool: Constructing parallel lines!";
+    return @"你解锁了一个新工具: 构建平行线工具!";
 }
 
 - (NSUInteger)minimumNumberOfMoves
@@ -357,12 +360,14 @@
         Message* message1 = [self createMiddleMessageWithSuperView:hintView];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"For two parallel lines it always holds true that they"];
+            //[message1 text:@"For two parallel lines it always holds true that they"];
+            [message1 text:@"对于两条互相平行的直线，以下结论总是成立："];
             [self fadeInViews:@[message1, paraView] withDuration:2.5];
         }];
         
         [self afterDelay:4.0 :^{
-            [message1 appendLine:@"intersect a third line at equal angles." withDuration:2.0];
+            //[message1 appendLine:@"intersect a third line at equal angles." withDuration:2.0];
+            [message1 appendLine:@"平行的直线总是与第三条直线有相同的夹角。" withDuration:2.0];
             [self fadeInViews:@[lineView] withDuration:2.5];
         }];
         

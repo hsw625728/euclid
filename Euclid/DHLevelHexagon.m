@@ -22,7 +22,8 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a regular hexagon given one side AB.");
+    //return (@"Construct a regular hexagon given one side AB.");
+    return (@"构建一个以AB为边的正六边形。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -287,11 +288,13 @@
         Message* message1 = [[Message alloc] initAtPoint:CGPointMake(80,460) addTo:hintView];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"All the inner angles of a hexagon always equal 120°."];
+            //[message1 text:@"All the inner angles of a hexagon always equal 120°."];
+            [message1 text:@"正六边形的所有内角总是等于120°。"];
             [self fadeInViews:@[message1, hexaView] withDuration:2.5];
         }];
         [self afterDelay:3.0:^{
-            [message1 appendLine:@"Do you have tool that can make an angle easily related to that?"
+            //[message1 appendLine:@"Do you have tool that can make an angle easily related to that?"
+            [message1 appendLine:@"你想到了与之相关的工具了吗?"
                     withDuration:2.5];
         }];
         

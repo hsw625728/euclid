@@ -24,12 +24,14 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a circle at C, cutting off a segment of length AB on the given line");
+    //return (@"Construct a circle at C, cutting off a segment of length AB on the given line");
+    return (@"构建一个以点C为圆心点圆，圆在直线上切出一条线段，使得线段长度等于给定的线段AB的长度。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Given a line, a line segment AB, and a point C. Construct a circle with center C such that the part of the given line inside the circle has the same length as segment AB.");
+    //return (@"Given a line, a line segment AB, and a point C. Construct a circle with center C such that the part of the given line inside the circle has the same length as segment AB.");
+    return (@"给定一条直线，一条线段AB，一个点C。构建一个以点C为圆心点圆，圆在直线上切出一条线段，使得线段长度等于给定的线段AB的长度。");
 }
 
 
@@ -254,7 +256,8 @@
         }];
         
         [self afterDelay:0.0 performBlock:^{
-            [message1 text:@"We are looking for a circle such that:"];
+            //[message1 text:@"We are looking for a circle such that:"];
+            [message1 text:@"我们现在来寻找这样一个圆:"];
             [self fadeIn:message1 withDuration:1.0];
             [self fadeIn:circleView withDuration:2.0];
         }];
@@ -268,11 +271,13 @@
             
         }];
         [self afterDelay:8.0 performBlock:^{
-            [message1 appendLine:@"Remember the interesting fact that we learned in Level 14."
+            //[message1 appendLine:@"Remember the interesting fact that we learned in Level 14."
+            [message1 appendLine:@"请回想一下我们在挑战-14中学到的。"
                     withDuration:1.0 forceNewLine:YES];
         }];
         [self afterDelay:12.0 performBlock:^{
-            [message1 appendLine:@"The perpendicular bisector of DE will pass through the center."
+            //[message1 appendLine:@"The perpendicular bisector of DE will pass through the center."
+            [message1 appendLine:@"DE的垂直平分线将通过圆心。"
                     withDuration:1.0];
             [self fadeIn:perpView withDuration:2.0];
         }];

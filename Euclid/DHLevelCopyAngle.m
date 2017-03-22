@@ -27,12 +27,14 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct an angle at B to the given line equal to the given angle.");
+    //return (@"Construct an angle at B to the given line equal to the given angle.");
+    return (@"构建一个以点B为顶点的角，使得角B的角度等于给定角A的角度。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct an angle at B to the given line equal to the given angle at A.");
+    //return (@"Construct an angle at B to the given line equal to the given angle at A.");
+    return (@"构建一个以点B为顶点的角，使得角B的角度等于给定角A的角度。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -293,23 +295,28 @@
     [hintView addSubview:message1];
     
     [self afterDelay:0.0 performBlock:^{
-        [message1 text:@"Let's first make the following triangle."];
+        //[message1 text:@"Let's first make the following triangle."];
+        [message1 text:@"我们按照这个步骤构造一个三角形："];
         [self fadeIn:message1 withDuration:1.0];
     }];
     [self afterDelay:4.0 performBlock:^{
-        [message1 appendLine:@"Place point C on one of the rays." withDuration:1.0];
+        //[message1 appendLine:@"Place point C on one of the rays." withDuration:1.0];
+        [message1 appendLine:@"1.在其中一条射线上放一个点C；" withDuration:1.0];
         [self fadeIn:cView withDuration:1.0];
     }];
     [self afterDelay:8.0 performBlock:^{
-        [message1 appendLine:@"Place point D on the other ray." withDuration:1.0];
+        //[message1 appendLine:@"Place point D on the other ray." withDuration:1.0];
+        [message1 appendLine:@"2.在另一条射线上放一个点D；" withDuration:1.0];
         [self fadeIn:dView withDuration:1.0];
     }];
     [self afterDelay:12.0 performBlock:^{
-        [message1 appendLine:@"We can now construct the triangle ACD." withDuration:1.0];
+        //[message1 appendLine:@"We can now construct the triangle ACD." withDuration:1.0];
+        [message1 appendLine:@"3.现在我们构建了一个三角形ACD。" withDuration:1.0];
         [self fadeIn:segmentView withDuration:1.0];
     }];
     [self afterDelay:16.0 performBlock:^{
-        [message1 appendLine:@"Can you make a congruent triangle at B?" withDuration:1.0];
+        //[message1 appendLine:@"Can you make a congruent triangle at B?" withDuration:1.0];
+        [message1 appendLine:@"还记得上一个挑战的内容吗，如何在点B上构建一个相等的三角形？" withDuration:1.0];
         
         [self fadeIn:tempView withDuration:0.0];
         [self movePointFrom:tempA to:_rayB.start withDuration:3.0 inView:tempView];

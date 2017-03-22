@@ -24,17 +24,20 @@
 
 - (NSString*)levelDescription
 {
-    return @"Translate the segment AB to the point C.";
+    //return @"Translate the segment AB to the point C.";
+    return @"将线段AB平移，使其经过点C。";
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return @"Translate the segment AB to point C. \n\nIn other words, construct a line segment with the same length and same direction as line segment AB but with starting point C. Note that point C lays on the same line as segment AB.";
+    //return @"Translate the segment AB to point C. \n\nIn other words, construct a line segment with the same length and same direction as line segment AB but with starting point C. Note that point C lays on the same line as segment AB.";
+    return @"将线段AB平移，使其经过点C。 \n\n换句话说，构建一条线段，使其与线段AB相同长度且同方向，但具有起点C。 请注意点C和线段AB在同一条直线上。";
 }
 
 - (NSString *)additionalCompletionMessage
 {
-    return (@"You enhanced your tool: Translating lines!");
+    //return (@"You enhanced your tool: Translating lines!");
+    return (@"你加强了一个工具: 线段平移工具!");
 }
 
 - (DHToolsAvailable)availableTools
@@ -225,7 +228,8 @@
         Message* message1 = [[Message alloc] initAtPoint:CGPointMake(80,460) addTo:hintView];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"Constructing a rhomboid makes it possible to copy a line segment."];
+            //[message1 text:@"Constructing a rhomboid makes it possible to copy a line segment."];
+            [message1 text:@"构建菱形可以复制线段。"];
             [self fadeInViews:@[message1, s1View] withDuration:1.5];
         }];
         
@@ -238,7 +242,8 @@
         }];
         
         [self afterDelay:6.0 :^{
-            [message1 appendLine:@"However, that construction breaks down when the point is in line with the segment."
+            //[message1 appendLine:@"However, that construction breaks down when the point is in line with the segment."
+            [message1 appendLine:@"但是，当该点与线段在同一直线上时，该构造会中断。"
                     withDuration:2.0];
             [self movePoint:p3 toPosition:CGPointMake(centerX-130, 250) withDuration:3.0
                     inViews:@[rhombView1, rhombView2, s1View, s2View]];
@@ -249,11 +254,13 @@
         }];
         
         [self afterDelay:10.0 :^{
-            [message1 appendLine:@"Can you think of another, indirect way, to copy the line segment in that case?"
+            //[message1 appendLine:@"Can you think of another, indirect way, to copy the line segment in that case?"
+            [message1 appendLine:@"你是否能想到另一个间接方式来复制线段？"
                     withDuration:2.0];
         }];
         [self afterDelay:12.0 :^{
-            [message1 appendLine:@"The new copy line segment tool is still useful!"
+            //[message1 appendLine:@"The new copy line segment tool is still useful!"
+            [message1 appendLine:@"新的构建线段副本的工具是很有用的。"
                     withDuration:2.0];
         }];
         

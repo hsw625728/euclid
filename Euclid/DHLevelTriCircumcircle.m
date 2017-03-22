@@ -26,13 +26,16 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct the circumcircle of a triangle.");
+    //return (@"Construct the circumcircle of a triangle.");
+    return (@"构建三角形的外接圆。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct the circumcircle of a triangle. \n\nA circumcircle is a circle that passes through all three "
-            @"points of a triangle.");
+    //return (@"Construct the circumcircle of a triangle. \n\nA circumcircle is a circle that passes through all three "
+    //        @"points of a triangle.");
+    return (@"构建三角形的外接圆。 \n\n外接圆的圆周包含了三角形的三个顶点。"
+            @"三角形的三个顶点都处于外接圆的圆周上。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -226,23 +229,27 @@
         
         if (!hint1_OK) {
             [self afterDelay:0.0 performBlock:^{
-                [message1 text:@"The circumcircle passes through all three vertices of the triangle."];
+                //[message1 text:@"The circumcircle passes through all three vertices of the triangle."];
+                [message1 text:@"外接圆的圆周包含了三角形所有的三个顶点。"];
                 [self fadeIn:message1 withDuration:1.0];
             }];
             
             [self afterDelay:4.0 performBlock:^{
-                [message1 appendLine:@"So the center of the circumcircle is equidistant from the points A, B and C."
+                //[message1 appendLine:@"So the center of the circumcircle is equidistant from the points A, B and C."
+                [message1 appendLine:@"所以外接圆的圆心距离A，B和C点是等距的。"
                         withDuration:1.0];
             }];
             
             [self afterDelay:8.0 performBlock:^{
-                [message1 appendLine:@"The midpoint of line segment BC is equidistant from the points B and C."
+                //[message1 appendLine:@"The midpoint of line segment BC is equidistant from the points B and C."
+                [message1 appendLine:@"线段BC的中点距离点B和点C是等距的。"
                         withDuration:1.0];
                 [self fadeIn:midView withDuration:2.0];
             }];
             
             [self afterDelay:12.0 performBlock:^{
-                [message1 appendLine:@"Can you construct a line that is equidistant from the points B and C?"
+                //[message1 appendLine:@"Can you construct a line that is equidistant from the points B and C?"
+                [message1 appendLine:@"你可以构建一个距离点B和C等距的线吗?"
                         withDuration:1.0];
                 [self fadeIn:perpView withDuration:2.0];
                 hint1_OK = YES;
@@ -250,19 +257,22 @@
         }
         else if (!hint2_OK) {
             [self afterDelay:0.0 performBlock:^{
-                [message1 text:@"The line with this property is called the perpendicular bisector of line segment BC."];
+                //[message1 text:@"The line with this property is called the perpendicular bisector of line segment BC."];
+                [message1 text:@"具有该属性的线被称为线段BC的中垂线。"];
                 [self fadeIn:message1 withDuration:1.0];
             }];
             
             [self afterDelay:4.0 performBlock:^{
-                [message1 appendLine:@"The line is perpendicular to BC and passes through the midpoint."
+                //[message1 appendLine:@"The line is perpendicular to BC and passes through the midpoint."
+                [message1 appendLine:@"线垂直于BC并且通过中点。"
                         withDuration:1.0];
                 [self fadeIn:perpView withDuration:2.0];
                 [self fadeIn:midView withDuration:2.0];
             }];
             
             [self afterDelay:8.0 performBlock:^{
-                [message1 appendLine:@"The center of the circumcircle is equidistant from point B and C."
+                //[message1 appendLine:@"The center of the circumcircle is equidistant from point B and C."
+                [message1 appendLine:@"外接圆的圆心与点B和C等距。"
                         withDuration:1.0];
             }];
             
@@ -271,7 +281,8 @@
             }];
             
             [self afterDelay:12.0 performBlock:^{
-                [message1 appendLine:@"Hence, it must lie somewhere on this line!"
+                //[message1 appendLine:@"Hence, it must lie somewhere on this line!"
+                [message1 appendLine:@"所以，圆心肯定处于这条线的某处！"
                         withDuration:1.0];
                 [self movePointOnLine:point toTValue:-280 withDuration:5.0 inView:circleView];
             }];
