@@ -21,12 +21,14 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct two points, cutting the given segment into three equal pieces");
+    //return (@"Construct two points, cutting the given segment into three equal pieces");
+    return (@"在线段AB上找出两个点。\n使得这两个点将线段AB三等分。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct two points, such that the segment is cut into three equal pieces.");
+    //return (@"Construct two points, such that the segment is cut into three equal pieces.");
+    return (@"在线段AB上找出两个点。\n使得这两个点将线段AB三等分。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -205,27 +207,33 @@
         }];
         
         [self afterDelay:0.0 performBlock:^{
-            [message1 text:@"Let's start with a simpler challenge."];
+            //[message1 text:@"Let's start with a simpler challenge."];
+            [message1 text:@"我们先从一个简单的挑战开始。"];
             [self fadeIn:message1 withDuration:1.0];
         }];
         [self afterDelay:4.0 performBlock:^{
-            [message1 appendLine:(@"Construct: \n (1) a random point C, not on the segment AB"
-                                  @"\n (2) a line segment from A to C")
+            //[message1 appendLine:(@"Construct: \n (1) a random point C, not on the segment AB"
+            //                      @"\n (2) a line segment from A to C")
+             [message1 appendLine:(@"构建: \n (1) 随机找出一个不在直线AB上的点C"
+                                   @"\n (2) 连接AC构建线段AC")
                     withDuration:1.0 forceNewLine:YES];
             [self fadeIn:segment1View withDuration:1.0];
         }];
         [self afterDelay:8.0 performBlock:^{
-            [message1 appendLine:@" (3) a line segment with length AC that starts on C"
+            //[message1 appendLine:@" (3) a line segment with length AC that starts on C"
+             [message1 appendLine:@" (3) 复制线段AC使之以点C为起点，得出线段CD"
                     withDuration:1.0 forceNewLine:YES];
             [self fadeIn:segment2View withDuration:1.0];
         }];
         [self afterDelay:12.0 performBlock:^{
-            [message1 appendLine:@" (4) a line segment with length AC that starts on D"
+            //[message1 appendLine:@" (4) a line segment with length AC that starts on D"
+             [message1 appendLine:@" (4) 再构建一条等长的线段以D为起点"
                     withDuration:1.0 forceNewLine:YES];
             [self fadeIn:segment3View withDuration:1.0];
         }];
         [self afterDelay:16.0 performBlock:^{
-            [message1 appendLine:@"Note that the line segment AE is now cut into three equal parts."
+            //[message1 appendLine:@"Note that the line segment AE is now cut into three equal parts."
+             [message1 appendLine:@"清注意，现在你得到一条线段AE并且已经被三等分了。"
                     withDuration:1.0 forceNewLine:YES];
         }];
         

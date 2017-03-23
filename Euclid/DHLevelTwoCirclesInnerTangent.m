@@ -27,14 +27,18 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct an inner tangent between the two circles.");
+    //return (@"Construct an inner tangent between the two circles.");
+    return (@"构建两个圆的内切线。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct an inner tangent between the two circles. \n\n"
-            @"An inner tangent is a line that is tangent to both circles that intersects "
-            @"the segment joining two circles' centers.");
+    //return (@"Construct an inner tangent between the two circles. \n\n"
+    //        @"An inner tangent is a line that is tangent to both circles that intersects "
+    //        @"the segment joining two circles' centers.");
+    return (@"构建两个圆的内切线。 \n\n"
+            @"两个圆的内切线是指与两个圆都相切的直线或线段。"
+            @"这条直线或线段与两个圆心构成的线段相交。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -306,30 +310,36 @@
         }
         
         [self afterDelay:0.0 performBlock:^{
-            [message1 text:@"The line we are looking for must be tangent to both circles."];
+            //[message1 text:@"The line we are looking for must be tangent to both circles."];
+            [message1 text:@"我们正在寻找的线条必须与两边相切。"];
             [self fadeIn:message1 withDuration:1.0];
             [self fadeIn:tangentView withDuration:2.0];
         }];
         [self afterDelay:5.0 performBlock:^{
-            [message1 appendLine:(@"We know that the tangent is perpendicular to radial lines "
-                                  @"from the tangent points.") withDuration:1.0];
+            //[message1 appendLine:(@"We know that the tangent is perpendicular to radial lines "
+            //                      @"from the tangent points.") withDuration:1.0];
+            [message1 appendLine:(@"我们知道切线垂直于切线点的径向线。") withDuration:1.0];
             [self fadeIn:perpView withDuration:2.0];
         }];
         [self afterDelay:10.0 performBlock:^{
-            [message1 appendLine:@"What if we translate the tangent to point A?" withDuration:1.0];
+                //[message1 appendLine:@"What if we translate the tangent to point A?" withDuration:1.0];
+                [message1 appendLine:@"如果我们将切线平移经过点A，会怎么样呢？" withDuration:1.0];
             [self fadeIn:translatedView withDuration:2.0];
         }];
         [self afterDelay:15.0 performBlock:^{
-            [message1 appendLine:@"We then get a right trangle ABC." withDuration:1.0];
+                //[message1 appendLine:@"We then get a right trangle ABC." withDuration:1.0];
+                [message1 appendLine:@"我们得到一个直角三角形ABC。" withDuration:1.0];
             [self fadeIn:triangleView withDuration:2.0];
         }];
         [self afterDelay:20.0 performBlock:^{
-            [message1 appendLine:(@"Which means that the translated line segment is "
-                                  @"tangent to the following circle.") withDuration:1.0];
+            //[message1 appendLine:(@"Which means that the translated line segment is "
+            //                      @"tangent to the following circle.") withDuration:1.0];
+            [message1 appendLine:(@"这意味着平移过来的线段和我们即将寻找的圆是相切的。") withDuration:1.0];
             [self fadeIn:circleView withDuration:2.0];
         }];
         [self afterDelay:25.0 performBlock:^{
-            [message1 appendLine:@"Can you construct that circle and reverse the process?" withDuration:1.0];
+                //[message1 appendLine:@"Can you construct that circle and reverse the process?" withDuration:1.0];
+                [message1 appendLine:@"你能构建出这个圆并且完成挑战吗?" withDuration:1.0];
         }];
     }];
     

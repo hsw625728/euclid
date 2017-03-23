@@ -23,13 +23,15 @@
 
 - (NSString*)levelDescription
 {
+    //return (@"Construct two circles of radius AB, mutually tangent and to the given circle");
     return (@"Construct two circles of radius AB, mutually tangent and to the given circle");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct two new circles of radius AB where each pair of the three circles is tangent. "
-            @"One of the two circles must also touch point B.");
+    //return (@"Construct two new circles of radius AB where each pair of the three circles is tangent. "
+    //        @"One of the two circles must also touch point B.");
+    return (@"以线段AB长度为半径做两个圆。\n使得这三个圆互相相切。\n并且其中两个圆要相切于点B。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -252,24 +254,28 @@
         Message* message1 = [[Message alloc] initAtPoint:CGPointMake(80,460) addTo:hintView];
         
         [self afterDelay:0.0:^{
-            [message1 text:@"If two circles are tangent they only touch on exactly one point."];
+            //[message1 text:@"If two circles are tangent they only touch on exactly one point."];
+            [message1 text:@"如果两个圆是相切的，那么他们只有一个公共点。"];
             [self fadeInViews:@[message1, circleView, p2View] withDuration:2.5];
         }];
         
         [self afterDelay:4.0 :^{
-            [message1 appendLine:@"From this point a tangent line will also be tangent to both circles."
+            //[message1 appendLine:@"From this point a tangent line will also be tangent to both circles."
+            [message1 appendLine:@"经过这一点的切线于两个圆都相切。"
                     withDuration:2.0];
             [self fadeInViews:@[tangentView] withDuration:2.5];
         }];
         
         [self afterDelay:8.0 :^{
-            [message1 appendLine:@"We already know the angle between the tangent line and a radial line."
+            //[message1 appendLine:@"We already know the angle between the tangent line and a radial line."
+            [message1 appendLine:@"我们已经知道切线和径向线之间的角度固定为90°。"
                     withDuration:2.0];
             [self fadeInViews:@[radiusView] withDuration:2.5];
         }];
 
         [self afterDelay:12.0 :^{
-            [message1 appendLine:@"What must the angle between the two radial lines then be?"
+            //[message1 appendLine:@"What must the angle between the two radial lines then be?"
+            [message1 appendLine:@"我们肯定能得出两条径向线的角度?"
                     withDuration:2.0];
             [self fadeInViews:@[angleView] withDuration:2.5];
         }];

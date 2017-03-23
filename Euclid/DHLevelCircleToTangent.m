@@ -25,16 +25,15 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct a circle that passes through A and is tangent to the line at B.");
-    return (@"Construct a circle that passes through A and is tangent to the line at B.");
+    //return (@"Construct a circle that passes through A and is tangent to the line at B.");
+    return (@"构建一个通过A的圆，并与给定直线相切在直线上的B点。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Given a point A, a line, and a point B. Construct a circle that passes through A and is "
-            @"tangent to the line at B. \n\nA circle and a line are tangent if they only touch at one point.");
-    return (@"Given a point A, a line, and a point B. Construct a circle that passes through A and is "
-            @"tangent to the line at B. \n\nA circle and a line are tangent if they only touch at one point.");
+    //return (@"Given a point A, a line, and a point B. Construct a circle that passes through A and is "
+    //        @"tangent to the line at B. \n\nA circle and a line are tangent if they only touch at one point.");
+    return (@"给定一个点A，一条直线和直线上的点B。\n构建一个通过A的圆，使之与给定直线相切在直线上的B点。\n\n一个圆和直线相切他们有且仅有一个公共点。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -249,18 +248,18 @@
         if (!hint1_OK) {
             [self afterDelay:0.0 performBlock:^{
                 //[message1 text:@"Which properties does a circle have if it is tangent to a line?"];
-                [message1 text:@"Which properties does a circle have if it is tangent to a line?"];
+                [message1 text:@"一条与圆相切的直线有什么特性呢?"];
                 [self fadeIn:message1 withDuration:1.0];
                 [self fadeIn:circleView withDuration:1.0];
             }];
             [self afterDelay:4.0 performBlock:^{
                 //[message1 appendLine:@"What do we know about the line connecting the center with the tangent point?"
-                [message1 appendLine:@"What do we know about the line connecting the center with the tangent point?"
+                [message1 appendLine:@"关于圆和切点的连线具有什么样的特性呢?"
                         withDuration:1.0];
             }];
             [self afterDelay:8.0 performBlock:^{
                 //[message1 appendLine:@"It is an interesting fact, we learned in Level 13."
-                [message1 appendLine:@"It is an interesting fact, we learned in Level 13."
+                [message1 appendLine:@"有一个非常有趣的特性，我们在挑战-14中学到过。"
                         withDuration:1.0];
                 [self fadeIn:perpView withDuration:2.0];
                 
@@ -271,13 +270,13 @@
             
             [self afterDelay:0.0 performBlock:^{
                 //[message1 text:@"We know that the circle must pass through A and B."];
-                [message1 text:@"We know that the circle must pass through A and B."];
+                [message1 text:@"我们知道这个圆肯定是要经过点A和点B的。"];
                 [self fadeIn:message1 withDuration:1.0];
                 [self fadeIn:circleView withDuration:1.0];
             }];
             [self afterDelay:4.0 performBlock:^{
                 //[message1 appendLine:@"So A and B are equidistant from the center."
-                [message1 appendLine:@"So A and B are equidistant from the center."
+                [message1 appendLine:@"所以点A和点B到圆心的距离是等距的。"
                         withDuration:1.0];
                 
                 [perpView.geometricObjects addObject:segment2];
@@ -287,13 +286,13 @@
             
             [self afterDelay:8.0 performBlock:^{
                 //[message1 appendLine:@"What do we know about the perpendicular bisector of line segment AB?"
-                [message1 appendLine:@"What do we know about the perpendicular bisector of line segment AB?"
+                [message1 appendLine:@"关于线段AB的垂直平分线我们知道点什么呢?"
                         withDuration:1.0];
             }];
             
             [self afterDelay:12.0 performBlock:^{
                 //[message1 appendLine:@"It is an interesting fact we learned in Level 14."
-                [message1 appendLine:@"It is an interesting fact we learned in Level 14."
+                [message1 appendLine:@"这个非常有趣的特性，我们在挑战-13中学到过。"
                         withDuration:1.0];
                 [self fadeIn:bisectorView withDuration:2.0];
                 

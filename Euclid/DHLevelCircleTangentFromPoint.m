@@ -25,13 +25,16 @@
 
 - (NSString*)levelDescription
 {
-    return (@"Construct two tangents to the given circle from the point A.");
+    //return (@"Construct two tangents to the given circle from the point A.");
+    return (@"构建两条从点A出发，并且与给定圆相切的两条射线。");
 }
 
 - (NSString*)levelDescriptionExtra
 {
-    return (@"Construct two tangents to the given circle from the point A.\n\n"
-            @"A tangent to a circle is a line that only touches the circle at one point.");
+    //return (@"Construct two tangents to the given circle from the point A.\n\n"
+    //        @"A tangent to a circle is a line that only touches the circle at one point.");
+    return (@"构建两条从点A出发，并且与给定圆相切的两条射线。\n\n"
+            @"圆的切线是指与圆有且仅有一个公共点的直线。");
 }
 
 - (DHToolsAvailable)availableTools
@@ -307,26 +310,31 @@
                 [self fadeIn:geometryView withDuration:1.0];
             }];
             [self afterDelay:2.0 performBlock:^{
-                [message1 text:@"Suppose we have a circle with diameter AB."];
+                //[message1 text:@"Suppose we have a circle with diameter AB."];
+                [message1 text:@"假设我们有一个直径为AB的圆。"];
                 [self fadeIn:message1 withDuration:1.0];
                 [self fadeIn:circleView withDuration:2.0];
             }];
             [self afterDelay:6.0 performBlock:^{
-                [message1 appendLine:@"And let C be a point on the circle."
+                //[message1 appendLine:@"And let C be a point on the circle."
+                [message1 appendLine:@"并且C是圆上的一个点。"
                         withDuration:1.0];
                 [self fadeIn:pointView withDuration:2.0];
             }];
             [self afterDelay:10.0 performBlock:^{
-                [message1 appendLine:@"The triangle ABC is inscribed in the circle."
+                //[message1 appendLine:@"The triangle ABC is inscribed in the circle."
+                [message1 appendLine:@"三角形ABC内接于圆中。"
                         withDuration:1.0];
                 [self fadeIn:triangleView withDuration:2.0];
             }];
             [self afterDelay:14.0 performBlock:^{
-                [message1 appendLine:@"A very useful fact is that this inscribed triangle is right."
+                //[message1 appendLine:@"A very useful fact is that this inscribed triangle is right."
+                [message1 appendLine:@"一个有用的事实就是这个三角形永远是直角三角形。"
                         withDuration:1.0];
             }];
             [self afterDelay:18.0 performBlock:^{
-                [message1 appendLine:@"For any point C on the circle."
+                //[message1 appendLine:@"For any point C on the circle."
+                [message1 appendLine:@"对于圆上任意一个点C，这点都成立。"
                         withDuration:1.0];
                 [triangleView.geometricObjects addObject:pointC];
                 [pointView.geometricObjects removeObject:pointC];
@@ -340,23 +348,27 @@
         else if (!hint2_OK){
             
             [self afterDelay:0.0 performBlock:^{
-                [message1 text:@"We need to construct two tangents of the circle passing through point A."];
+                //[message1 text:@"We need to construct two tangents of the circle passing through point A."];
+                [message1 text:@"我们需要构建通过点A的圆的两条切线。"];
                 [self fadeIn:message1 withDuration:1.0];
                 [self fadeIn:circleView2 withDuration:2.0];
                 [self fadeIn:tangentView withDuration:2.0];
             }];
             [self afterDelay:4.0 performBlock:^{
-                [message1 appendLine:@"Note that the following segments are perpendicular to the tangents."
+                //[message1 appendLine:@"Note that the following segments are perpendicular to the tangents."
+                [message1 appendLine:@"请注意下面的线段垂直于切线。"
                         withDuration:1.0];
                 [self fadeIn:segentView withDuration:2.0];
             }];
             [self afterDelay:8.0 performBlock:^{
-                [message1 appendLine:@"Which means that the following triangles are right."
+                //[message1 appendLine:@"Which means that the following triangles are right."
+                [message1 appendLine:@"也就意味着下面的三角形是直角三角形。"
                         withDuration:1.0];
                 [self fadeIn:segmentView withDuration:2.0];
             }];
             [self afterDelay:12.0 performBlock:^{
-                [message1 appendLine:@"Just like an inscribed triangle with one side being the diameter."
+                //[message1 appendLine:@"Just like an inscribed triangle with one side being the diameter."
+                [message1 appendLine:@"就像一个内接的三角形，一边是直径。"
                         withDuration:1.0];
                 
                 hint2_OK = YES;
