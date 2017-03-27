@@ -100,7 +100,7 @@ NSString* const DHGameCenterManagerUserDidAuthenticateNotification = @"DHGameCen
 - (void) showLeaderboard
 {
     if (!_gameCenterAvailable) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Game Center" message:@"Leaderboards require that you are signed in to Game Center" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"游戏中心" message:@"查看排行榜需要登入苹果游戏中心（ Game Center）" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
         return;
     }
