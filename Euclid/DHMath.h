@@ -319,7 +319,8 @@ static DHPoint* FindPointClosestToPoint(CGPoint point, NSArray* geometricObjects
     
     for (id object in geometricObjects) {
         if ([[object class] isSubclassOfClass:[DHPoint class]]) {
-            CGPoint currentPoint = [object position];
+            DHPoint* tempObject = object;
+            CGPoint currentPoint = [tempObject position];
             CGFloat distance = SquaredDistanceBetweenPoints(point, currentPoint);
             
             if (distance < closestPointDistanceSquared) {
@@ -339,7 +340,8 @@ static DHPoint* FindPointClosestToCircle(DHCircle* c, NSArray* geometricObjects,
     
     for (id object in geometricObjects) {
         if ([[object class] isSubclassOfClass:[DHPoint class]]) {
-            CGPoint currentPoint = [object position];
+            DHPoint* tempObject = object;
+            CGPoint currentPoint = [tempObject position];
             CGFloat distance = DistanceFromPositionToCircle(currentPoint, c);
             
             if (distance < closestPointDistance) {

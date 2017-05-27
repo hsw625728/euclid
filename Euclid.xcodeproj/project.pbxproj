@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		587044861ED96F2000A541E5 /* GlowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044821ED96F2000A541E5 /* GlowImageView.m */; };
+		587044871ED96F2000A541E5 /* MenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044831ED96F2000A541E5 /* MenuButton.m */; };
+		587044881ED96F2000A541E5 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044841ED96F2000A541E5 /* MenuItem.m */; };
+		587044891ED96F2000A541E5 /* PopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044851ED96F2000A541E5 /* PopMenu.m */; };
+		5870448D1ED9704F00A541E5 /* UIColor+MLBUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5870448C1ED9704F00A541E5 /* UIColor+MLBUtilities.m */; };
+		587044911ED971D800A541E5 /* XHRealTimeBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044901ED971D800A541E5 /* XHRealTimeBlur.m */; };
+		5870449C1ED972B100A541E5 /* MTLModel+MANullableScalar.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044971ED972B100A541E5 /* MTLModel+MANullableScalar.m */; };
+		5870449D1ED972B100A541E5 /* NSString+MLBUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044981ED972B100A541E5 /* NSString+MLBUtilities.m */; };
+		587044A01ED972B100A541E5 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5870449B1ED972B100A541E5 /* UIView+Frame.m */; };
+		587044AB1ED9739900A541E5 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044A71ED9739900A541E5 /* UIImage+ImageEffects.m */; };
+		587044AC1ED9739900A541E5 /* ParallaxHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044A91ED9739900A541E5 /* ParallaxHeaderView.m */; };
+		587044AF1ED973A600A541E5 /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044AD1ED973A600A541E5 /* MZTimerLabel.m */; };
+		587044B41ED973B200A541E5 /* UIColor+Equalable.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044B01ED973B200A541E5 /* UIColor+Equalable.m */; };
+		587044B51ED973B200A541E5 /* MZSelectableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044B21ED973B200A541E5 /* MZSelectableLabel.m */; };
+		587044BA1ED973B900A541E5 /* UIScrollView+DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044B61ED973B900A541E5 /* UIScrollView+DZNSegmentedControl.m */; };
+		587044BB1ED973B900A541E5 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044B81ED973B900A541E5 /* DZNSegmentedControl.m */; };
+		587044BF1ED973C900A541E5 /* AAPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044BD1ED973C900A541E5 /* AAPullToRefresh.m */; };
+		587044C21ED973D200A541E5 /* MLBTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044C01ED973D200A541E5 /* MLBTapImageView.m */; };
 		681C8886198D0BF1005307F5 /* DHSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681C8885198D0BF1005307F5 /* DHSettingsTableViewController.m */; };
 		681C8889198D4D02005307F5 /* DHLevelSelection2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681C8888198D4D02005307F5 /* DHLevelSelection2ViewController.m */; };
 		681C888C198D4FA2005307F5 /* DHLevelSelection2LevelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 681C888B198D4FA2005307F5 /* DHLevelSelection2LevelCell.m */; };
@@ -92,6 +110,7 @@
 		68F0AA421963E10C00A97B86 /* DHLevelBisect.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0AA411963E10C00A97B86 /* DHLevelBisect.m */; };
 		68F0AA45196420C700A97B86 /* DHLevelPerpendicular.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0AA44196420C700A97B86 /* DHLevelPerpendicular.m */; };
 		68F0AA481964889C00A97B86 /* DHGeometricObjectLabeler.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0AA471964889C00A97B86 /* DHGeometricObjectLabeler.m */; };
+		B589035392E3D5947803F5D4 /* libPods-Euclid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E122B7E098C387C2A9D566 /* libPods-Euclid.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +124,45 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57976F466FBA09FD7F9C315D /* Pods-Euclid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euclid.release.xcconfig"; path = "Pods/Target Support Files/Pods-Euclid/Pods-Euclid.release.xcconfig"; sourceTree = "<group>"; };
+		5870447E1ED96F2000A541E5 /* GlowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlowImageView.h; path = Vendors/PopMenu/GlowImageView.h; sourceTree = "<group>"; };
+		5870447F1ED96F2000A541E5 /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuButton.h; path = Vendors/PopMenu/MenuButton.h; sourceTree = "<group>"; };
+		587044801ED96F2000A541E5 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItem.h; path = Vendors/PopMenu/MenuItem.h; sourceTree = "<group>"; };
+		587044811ED96F2000A541E5 /* PopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopMenu.h; path = Vendors/PopMenu/PopMenu.h; sourceTree = "<group>"; };
+		587044821ED96F2000A541E5 /* GlowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlowImageView.m; path = Vendors/PopMenu/GlowImageView.m; sourceTree = "<group>"; };
+		587044831ED96F2000A541E5 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuButton.m; path = Vendors/PopMenu/MenuButton.m; sourceTree = "<group>"; };
+		587044841ED96F2000A541E5 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItem.m; path = Vendors/PopMenu/MenuItem.m; sourceTree = "<group>"; };
+		587044851ED96F2000A541E5 /* PopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopMenu.m; path = Vendors/PopMenu/PopMenu.m; sourceTree = "<group>"; };
+		5870448B1ED9704F00A541E5 /* UIColor+MLBUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MLBUtilities.h"; path = "Vendors/Categories/UIColor+MLBUtilities.h"; sourceTree = "<group>"; };
+		5870448C1ED9704F00A541E5 /* UIColor+MLBUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MLBUtilities.m"; path = "Vendors/Categories/UIColor+MLBUtilities.m"; sourceTree = "<group>"; };
+		5870448F1ED971D800A541E5 /* XHRealTimeBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHRealTimeBlur.h; path = Vendors/XHRealTimeBlur/XHRealTimeBlur.h; sourceTree = "<group>"; };
+		587044901ED971D800A541E5 /* XHRealTimeBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHRealTimeBlur.m; path = Vendors/XHRealTimeBlur/XHRealTimeBlur.m; sourceTree = "<group>"; };
+		587044921ED972B100A541E5 /* MTLModel+MANullableScalar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MTLModel+MANullableScalar.h"; path = "Vendors/Categories/MTLModel+MANullableScalar.h"; sourceTree = "<group>"; };
+		587044931ED972B100A541E5 /* NSString+MLBUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MLBUtilities.h"; path = "Vendors/Categories/NSString+MLBUtilities.h"; sourceTree = "<group>"; };
+		587044941ED972B100A541E5 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Common.h"; path = "Vendors/Categories/UIImage+Common.h"; sourceTree = "<group>"; };
+		587044951ED972B100A541E5 /* UIImageView+MLBSDImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+MLBSDImageLoader.h"; path = "Vendors/Categories/UIImageView+MLBSDImageLoader.h"; sourceTree = "<group>"; };
+		587044961ED972B100A541E5 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Vendors/Categories/UIView+Frame.h"; sourceTree = "<group>"; };
+		587044971ED972B100A541E5 /* MTLModel+MANullableScalar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MTLModel+MANullableScalar.m"; path = "Vendors/Categories/MTLModel+MANullableScalar.m"; sourceTree = "<group>"; };
+		587044981ED972B100A541E5 /* NSString+MLBUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MLBUtilities.m"; path = "Vendors/Categories/NSString+MLBUtilities.m"; sourceTree = "<group>"; };
+		5870449B1ED972B100A541E5 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Vendors/Categories/UIView+Frame.m"; sourceTree = "<group>"; };
+		587044A71ED9739900A541E5 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "Vendors/ParallaxTableViewHeader/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		587044A81ED9739900A541E5 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "Vendors/ParallaxTableViewHeader/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		587044A91ED9739900A541E5 /* ParallaxHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxHeaderView.m; path = Vendors/ParallaxTableViewHeader/ParallaxHeaderView.m; sourceTree = "<group>"; };
+		587044AA1ED9739900A541E5 /* ParallaxHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxHeaderView.h; path = Vendors/ParallaxTableViewHeader/ParallaxHeaderView.h; sourceTree = "<group>"; };
+		587044AD1ED973A600A541E5 /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MZTimerLabel.m; path = Vendors/MZTimerLabel/MZTimerLabel.m; sourceTree = "<group>"; };
+		587044AE1ED973A600A541E5 /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MZTimerLabel.h; path = Vendors/MZTimerLabel/MZTimerLabel.h; sourceTree = "<group>"; };
+		587044B01ED973B200A541E5 /* UIColor+Equalable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Equalable.m"; path = "Vendors/MZSelectableLabel/UIColor+Equalable.m"; sourceTree = "<group>"; };
+		587044B11ED973B200A541E5 /* UIColor+Equalable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Equalable.h"; path = "Vendors/MZSelectableLabel/UIColor+Equalable.h"; sourceTree = "<group>"; };
+		587044B21ED973B200A541E5 /* MZSelectableLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MZSelectableLabel.m; path = Vendors/MZSelectableLabel/MZSelectableLabel.m; sourceTree = "<group>"; };
+		587044B31ED973B200A541E5 /* MZSelectableLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MZSelectableLabel.h; path = Vendors/MZSelectableLabel/MZSelectableLabel.h; sourceTree = "<group>"; };
+		587044B61ED973B900A541E5 /* UIScrollView+DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+DZNSegmentedControl.m"; path = "Vendors/DZNSegmentedControl/UIScrollView+DZNSegmentedControl.m"; sourceTree = "<group>"; };
+		587044B71ED973B900A541E5 /* UIScrollView+DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+DZNSegmentedControl.h"; path = "Vendors/DZNSegmentedControl/UIScrollView+DZNSegmentedControl.h"; sourceTree = "<group>"; };
+		587044B81ED973B900A541E5 /* DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DZNSegmentedControl.m; path = Vendors/DZNSegmentedControl/DZNSegmentedControl.m; sourceTree = "<group>"; };
+		587044B91ED973B900A541E5 /* DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZNSegmentedControl.h; path = Vendors/DZNSegmentedControl/DZNSegmentedControl.h; sourceTree = "<group>"; };
+		587044BD1ED973C900A541E5 /* AAPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPullToRefresh.m; path = Vendors/AAPullToRefresh/AAPullToRefresh.m; sourceTree = "<group>"; };
+		587044BE1ED973C900A541E5 /* AAPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPullToRefresh.h; path = Vendors/AAPullToRefresh/AAPullToRefresh.h; sourceTree = "<group>"; };
+		587044C01ED973D200A541E5 /* MLBTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLBTapImageView.m; path = Vendors/MLBTapImageView/MLBTapImageView.m; sourceTree = "<group>"; };
+		587044C11ED973D200A541E5 /* MLBTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLBTapImageView.h; path = Vendors/MLBTapImageView/MLBTapImageView.h; sourceTree = "<group>"; };
 		681C8884198D0BF1005307F5 /* DHSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSettingsTableViewController.h; sourceTree = "<group>"; };
 		681C8885198D0BF1005307F5 /* DHSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSettingsTableViewController.m; sourceTree = "<group>"; };
 		681C8887198D4D02005307F5 /* DHLevelSelection2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHLevelSelection2ViewController.h; sourceTree = "<group>"; };
@@ -258,6 +316,8 @@
 		68F0AA44196420C700A97B86 /* DHLevelPerpendicular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHLevelPerpendicular.m; sourceTree = "<group>"; };
 		68F0AA461964889C00A97B86 /* DHGeometricObjectLabeler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHGeometricObjectLabeler.h; sourceTree = "<group>"; };
 		68F0AA471964889C00A97B86 /* DHGeometricObjectLabeler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHGeometricObjectLabeler.m; sourceTree = "<group>"; };
+		DF150587F9966646DA422022 /* Pods-Euclid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euclid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Euclid/Pods-Euclid.debug.xcconfig"; sourceTree = "<group>"; };
+		E6E122B7E098C387C2A9D566 /* libPods-Euclid.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Euclid.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,12 +339,130 @@
 				68F0A9CC19587AEC00A97B86 /* UIKit.framework in Frameworks */,
 				68F0A9C819587AEC00A97B86 /* Foundation.framework in Frameworks */,
 				6866224619779204004DCFAC /* GameKit.framework in Frameworks */,
+				B589035392E3D5947803F5D4 /* libPods-Euclid.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5870447C1ED96F0800A541E5 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				587044A61ED9738400A541E5 /* ParallaxTableViewHeader */,
+				587044A51ED9737B00A541E5 /* MZTimerLabel */,
+				587044A41ED9737000A541E5 /* MZSelectableLabel */,
+				587044A31ED9736800A541E5 /* DZNSegmentedControl */,
+				587044A21ED9736100A541E5 /* AAPullToRefresh */,
+				587044A11ED9735200A541E5 /* MLBTapImageView */,
+				5870448E1ED971CB00A541E5 /* XHRealTimeBlur */,
+				5870448A1ED9702F00A541E5 /* Categories */,
+				5870447D1ED96F1100A541E5 /* PopMenu */,
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		5870447D1ED96F1100A541E5 /* PopMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5870447E1ED96F2000A541E5 /* GlowImageView.h */,
+				5870447F1ED96F2000A541E5 /* MenuButton.h */,
+				587044801ED96F2000A541E5 /* MenuItem.h */,
+				587044811ED96F2000A541E5 /* PopMenu.h */,
+				587044821ED96F2000A541E5 /* GlowImageView.m */,
+				587044831ED96F2000A541E5 /* MenuButton.m */,
+				587044841ED96F2000A541E5 /* MenuItem.m */,
+				587044851ED96F2000A541E5 /* PopMenu.m */,
+			);
+			name = PopMenu;
+			sourceTree = "<group>";
+		};
+		5870448A1ED9702F00A541E5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				587044921ED972B100A541E5 /* MTLModel+MANullableScalar.h */,
+				587044931ED972B100A541E5 /* NSString+MLBUtilities.h */,
+				587044941ED972B100A541E5 /* UIImage+Common.h */,
+				587044951ED972B100A541E5 /* UIImageView+MLBSDImageLoader.h */,
+				587044961ED972B100A541E5 /* UIView+Frame.h */,
+				587044971ED972B100A541E5 /* MTLModel+MANullableScalar.m */,
+				587044981ED972B100A541E5 /* NSString+MLBUtilities.m */,
+				5870449B1ED972B100A541E5 /* UIView+Frame.m */,
+				5870448B1ED9704F00A541E5 /* UIColor+MLBUtilities.h */,
+				5870448C1ED9704F00A541E5 /* UIColor+MLBUtilities.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		5870448E1ED971CB00A541E5 /* XHRealTimeBlur */ = {
+			isa = PBXGroup;
+			children = (
+				5870448F1ED971D800A541E5 /* XHRealTimeBlur.h */,
+				587044901ED971D800A541E5 /* XHRealTimeBlur.m */,
+			);
+			name = XHRealTimeBlur;
+			sourceTree = "<group>";
+		};
+		587044A11ED9735200A541E5 /* MLBTapImageView */ = {
+			isa = PBXGroup;
+			children = (
+				587044C01ED973D200A541E5 /* MLBTapImageView.m */,
+				587044C11ED973D200A541E5 /* MLBTapImageView.h */,
+			);
+			name = MLBTapImageView;
+			sourceTree = "<group>";
+		};
+		587044A21ED9736100A541E5 /* AAPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				587044BD1ED973C900A541E5 /* AAPullToRefresh.m */,
+				587044BE1ED973C900A541E5 /* AAPullToRefresh.h */,
+			);
+			name = AAPullToRefresh;
+			sourceTree = "<group>";
+		};
+		587044A31ED9736800A541E5 /* DZNSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				587044B61ED973B900A541E5 /* UIScrollView+DZNSegmentedControl.m */,
+				587044B71ED973B900A541E5 /* UIScrollView+DZNSegmentedControl.h */,
+				587044B81ED973B900A541E5 /* DZNSegmentedControl.m */,
+				587044B91ED973B900A541E5 /* DZNSegmentedControl.h */,
+			);
+			name = DZNSegmentedControl;
+			sourceTree = "<group>";
+		};
+		587044A41ED9737000A541E5 /* MZSelectableLabel */ = {
+			isa = PBXGroup;
+			children = (
+				587044B01ED973B200A541E5 /* UIColor+Equalable.m */,
+				587044B11ED973B200A541E5 /* UIColor+Equalable.h */,
+				587044B21ED973B200A541E5 /* MZSelectableLabel.m */,
+				587044B31ED973B200A541E5 /* MZSelectableLabel.h */,
+			);
+			name = MZSelectableLabel;
+			sourceTree = "<group>";
+		};
+		587044A51ED9737B00A541E5 /* MZTimerLabel */ = {
+			isa = PBXGroup;
+			children = (
+				587044AD1ED973A600A541E5 /* MZTimerLabel.m */,
+				587044AE1ED973A600A541E5 /* MZTimerLabel.h */,
+			);
+			name = MZTimerLabel;
+			sourceTree = "<group>";
+		};
+		587044A61ED9738400A541E5 /* ParallaxTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				587044A71ED9739900A541E5 /* UIImage+ImageEffects.m */,
+				587044A81ED9739900A541E5 /* UIImage+ImageEffects.h */,
+				587044A91ED9739900A541E5 /* ParallaxHeaderView.m */,
+				587044AA1ED9739900A541E5 /* ParallaxHeaderView.h */,
+			);
+			name = ParallaxTableViewHeader;
+			sourceTree = "<group>";
+		};
 		681C888D198ECDF8005307F5 /* Custom view transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +522,7 @@
 				68376938197C315700D53E21 /* Euclid Tests */,
 				68F0A9C619587AEC00A97B86 /* Frameworks */,
 				68F0A9C519587AEC00A97B86 /* Products */,
+				9DAF9BFB629BA5A9B4E273E1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -364,6 +543,7 @@
 				68F0A9C919587AEC00A97B86 /* CoreGraphics.framework */,
 				68F0A9CB19587AEC00A97B86 /* UIKit.framework */,
 				68F0A9E619587AEC00A97B86 /* XCTest.framework */,
+				E6E122B7E098C387C2A9D566 /* libPods-Euclid.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -371,6 +551,7 @@
 		68F0A9CD19587AEC00A97B86 /* Euclid */ = {
 			isa = PBXGroup;
 			children = (
+				5870447C1ED96F0800A541E5 /* Vendors */,
 				68F0A9D619587AEC00A97B86 /* DHAppDelegate.h */,
 				68F0A9D719587AEC00A97B86 /* DHAppDelegate.m */,
 				68471127197843D6003B681B /* DHSettings.h */,
@@ -548,6 +729,15 @@
 			name = "Views & View Controllers";
 			sourceTree = "<group>";
 		};
+		9DAF9BFB629BA5A9B4E273E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF150587F9966646DA422022 /* Pods-Euclid.debug.xcconfig */,
+				57976F466FBA09FD7F9C315D /* Pods-Euclid.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -573,9 +763,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68F0A9F619587AEC00A97B86 /* Build configuration list for PBXNativeTarget "Euclid" */;
 			buildPhases = (
+				ABAC3D2C5C8B8B6244270E73 /* [CP] Check Pods Manifest.lock */,
 				68F0A9C019587AEC00A97B86 /* Sources */,
 				68F0A9C119587AEC00A97B86 /* Frameworks */,
 				68F0A9C219587AEC00A97B86 /* Resources */,
+				6B7F321058BB56972F68CEB1 /* [CP] Embed Pods Frameworks */,
+				1D98C939865B9A2B047C2817 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -600,7 +793,8 @@
 						TestTargetID = 68F0A9C319587AEC00A97B86;
 					};
 					68F0A9C319587AEC00A97B86 = {
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 887CVK63XR;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -653,6 +847,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1D98C939865B9A2B047C2817 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Euclid/Pods-Euclid-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B7F321058BB56972F68CEB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Euclid/Pods-Euclid-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABAC3D2C5C8B8B6244270E73 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		68376930197C315600D53E21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -666,6 +908,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5870448D1ED9704F00A541E5 /* UIColor+MLBUtilities.m in Sources */,
 				6866224C197792BC004DCFAC /* DHGameCenterManager.m in Sources */,
 				681C88AE19921BE3005307F5 /* DHMidpointTool.m in Sources */,
 				681C88B219921C86005307F5 /* DHParallelTool.m in Sources */,
@@ -675,10 +918,13 @@
 				68F0AA011958C5AB00A97B86 /* DHGeometricObjects.m in Sources */,
 				681C8890198ECE19005307F5 /* DHTransitionToLevel.m in Sources */,
 				68F0A9D819587AEC00A97B86 /* DHAppDelegate.m in Sources */,
+				587044861ED96F2000A541E5 /* GlowImageView.m in Sources */,
 				686014DB1969D3CE0004DD1E /* DHLevelCopyAngle.m in Sources */,
 				68E3CAB719A20FD20018851F /* DHGameModeSelectionButton.m in Sources */,
+				587044911ED971D800A541E5 /* XHRealTimeBlur.m in Sources */,
 				68376948197E2E4200D53E21 /* DHLevel.m in Sources */,
 				688768CE19AB5197000CAB03 /* DHTriangleView.m in Sources */,
+				587044BF1ED973C900A541E5 /* AAPullToRefresh.m in Sources */,
 				681C88B419921CAE005307F5 /* DHTranslateSegmentTool.m in Sources */,
 				686014DE1969DFE70004DD1E /* DHLevelCircleCenter.m in Sources */,
 				68E3CABA19A339F10018851F /* DHPopoverView.m in Sources */,
@@ -689,8 +935,10 @@
 				685534E8199AAC9500006C66 /* DHNavigationController.m in Sources */,
 				684708B81968A68500C1FA83 /* DHLevelMakeCompass.m in Sources */,
 				6872A7DE197023E000823AF9 /* DHLevelTwoCirclesInnerTangent.m in Sources */,
+				587044BA1ED973B900A541E5 /* UIScrollView+DZNSegmentedControl.m in Sources */,
 				681C889C1991E0D6005307F5 /* DHGeometryTool.m in Sources */,
 				688768D119ABA3FE000CAB03 /* DHAboutViewController.m in Sources */,
+				5870449D1ED972B100A541E5 /* NSString+MLBUtilities.m in Sources */,
 				68F0A9FE1958BDD500A97B86 /* DHGeometryView.m in Sources */,
 				683D9688196D3B0D0057B62D /* DHLevelCircleSegmentCutoff.m in Sources */,
 				68F0AA25195CBCA200A97B86 /* DHLevelViewController.m in Sources */,
@@ -701,14 +949,22 @@
 				681C8896199004C4005307F5 /* YLProgressBar.m in Sources */,
 				688768CB19AA4E92000CAB03 /* DHMagnifyingView.m in Sources */,
 				686622431972B78E004DCFAC /* DHLevelPlayground.m in Sources */,
+				587044B41ED973B200A541E5 /* UIColor+Equalable.m in Sources */,
 				68F0AA481964889C00A97B86 /* DHGeometricObjectLabeler.m in Sources */,
 				681C8889198D4D02005307F5 /* DHLevelSelection2ViewController.m in Sources */,
 				6837694B197F64BD00D53E21 /* DHMathFuzzyComparisons.m in Sources */,
+				587044881ED96F2000A541E5 /* MenuItem.m in Sources */,
+				587044AB1ED9739900A541E5 /* UIImage+ImageEffects.m in Sources */,
+				5870449C1ED972B100A541E5 /* MTLModel+MANullableScalar.m in Sources */,
+				587044891ED96F2000A541E5 /* PopMenu.m in Sources */,
 				683D9685196D2A390057B62D /* DHLevelTriCircumcircle.m in Sources */,
 				68D0F61B196D576700C4D617 /* DHLevelThreeCircles.m in Sources */,
 				6872A7DB197013C400823AF9 /* DHLevelTwoCirclesOuterTangent.m in Sources */,
 				686014E11969E6920004DD1E /* DHLevelMakeTangent.m in Sources */,
+				587044A01ED972B100A541E5 /* UIView+Frame.m in Sources */,
 				681C88AC19921B19005307F5 /* DHCircleTool.m in Sources */,
+				587044BB1ED973B900A541E5 /* DZNSegmentedControl.m in Sources */,
+				587044AF1ED973A600A541E5 /* MZTimerLabel.m in Sources */,
 				681C88B019921C45005307F5 /* DHPerpendicularTool.m in Sources */,
 				681C8893198ECEA0005307F5 /* DHTransitionFromLevel.m in Sources */,
 				684708B51968A07D00C1FA83 /* DHLevelLineCopy2.m in Sources */,
@@ -721,6 +977,8 @@
 				68D0F61E196DAF8C00C4D617 /* DHLevelSegmentInThree.m in Sources */,
 				6872A7E119702A1700823AF9 /* DHLevelPentagon.m in Sources */,
 				688768C519A84FE7000CAB03 /* DHWeakReference.m in Sources */,
+				587044C21ED973D200A541E5 /* MLBTapImageView.m in Sources */,
+				587044AC1ED9739900A541E5 /* ParallaxHeaderView.m in Sources */,
 				688768C819A8504B000CAB03 /* Message.m in Sources */,
 				6847112619783EE6003B681B /* DHSettingsViewController.m in Sources */,
 				683D968B196D465E0057B62D /* DHLevelCircleToTangent.m in Sources */,
@@ -733,6 +991,8 @@
 				684708AF1967496600C1FA83 /* DHLevelParallellLines.m in Sources */,
 				686622401972A7AB004DCFAC /* DHGameModeSelectionViewController.m in Sources */,
 				68E3CAB2199F138F0018851F /* NSUserDefaults+Encryption.m in Sources */,
+				587044871ED96F2000A541E5 /* MenuButton.m in Sources */,
+				587044B51ED973B200A541E5 /* MZSelectableLabel.m in Sources */,
 				68F0AA45196420C700A97B86 /* DHLevelPerpendicular.m in Sources */,
 				681C88A41991F5AB005307F5 /* DHLineTool.m in Sources */,
 				68471129197843D6003B681B /* DHSettings.m in Sources */,
@@ -893,12 +1153,13 @@
 		};
 		68F0A9F719587AEC00A97B86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF150587F9966646DA422022 /* Pods-Euclid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 887CVK63XR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Euclid/Euclid-Prefix.pch";
 				INFOPLIST_FILE = "Euclid/Euclid-Info.plist";
@@ -913,11 +1174,12 @@
 		};
 		68F0A9F819587AEC00A97B86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57976F466FBA09FD7F9C315D /* Pods-Euclid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 887CVK63XR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Euclid/Euclid-Prefix.pch";
@@ -925,8 +1187,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.euclid;
 				PRODUCT_NAME = "Euclid: The Game";
-				PROVISIONING_PROFILE = "4ef98042-959e-4c7b-bb52-1eef64b881c6";
-				PROVISIONING_PROFILE_SPECIFIER = eculid;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

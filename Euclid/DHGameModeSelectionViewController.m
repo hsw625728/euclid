@@ -16,9 +16,20 @@
 #import "DHGameModes.h"
 #import "DHGameCenterManager.h"
 #import "DHPopoverView.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "PopMenu.h"
+#import "UIColor+MLBUtilities.h"
 
 @interface DHGameModeSelectionViewController () <DHPopoverViewDelegate>
-
+@property (strong, nonatomic) PopMenu *popMenu;
+- (void)shareMeToYourFriends;
+- (void)shareToWeixin;
+- (void)shareToWeixinTimeline;
+- (void)shareToQQ;
+- (void)shareToWeibo;
+- (void)shareToMail;
+- (void)shareToSMS;
 @end
 
 @implementation DHGameModeSelectionViewController {
@@ -400,6 +411,7 @@
         [popOverView addButtonWithTitle:@"设置"];
         [popOverView addButtonWithTitle:@"排行榜 & 成就"];
         [popOverView addButtonWithTitle:@"关于"];
+        [popOverView addButtonWithTitle:@"推广赚佣金"];
         [popOverView show];
         
         _popoverMenu = popOverView;
@@ -433,11 +445,372 @@
         case 2:
             [self performSegueWithIdentifier:@"showAboutView" sender:nil];
             break;
+        case 3:
+            [self shareMeToFriend];
+            break;
         default:
             break;
     }
     
     [self hidePopoverMenu];
+}
+- (void)shareMeToFriend
+{
+    [self showPopMenuViewWithMenuSelectedBlock:^(MLBPopMenuType menuType) {
+        
+        //分享平台选择
+        switch(menuType){
+            case MLBPopMenuTypeWechatFrined:
+                [self shareToWeixin];
+                break;
+            case MLBPopMenuTypeMoments:
+                [self shareToWeixinTimeline];
+                break;
+            case MLBPopMenuTypeWeibo:
+                [self shareToWeibo];
+                break;
+            case MLBPopMenuTypeQQ:
+                [self shareToQQ];
+                break;
+            case MLBPopMenuTypeMail:
+                [self shareToMail];
+                break;
+            case MLBPopMenuTypeSMS:
+                [self shareToSMS];
+                break;
+            default:
+                return;
+                break;
+        }
+    }];
+    
+}
+
+#define SHARE_URL_MENGYOUTU @"http://mengyoutu.cn/euclid/ecuref?usr_code=31584442"
+#define THUMB_IMAGE @"EuclidLogo"
+#define SHARE_IMAGE @"EuclidLogo"
+
+- (void)shareToWeixin{
+    //参数设定
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupWeChatParamsByText:@"🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
+                                       title:@"[App推荐]稳定好用的VPN"
+                                         url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
+                                  thumbImage:[UIImage imageNamed:THUMB_IMAGE]
+                                       image:[UIImage imageNamed:SHARE_IMAGE]
+                                musicFileURL:nil
+                                     extInfo:nil
+                                    fileData:nil
+                                emoticonData:nil
+                                        type:SSDKContentTypeApp
+                          forPlatformSubType:SSDKPlatformSubTypeWechatSession];
+    
+    //分享事件
+    [ShareSDK share:SSDKPlatformSubTypeWechatSession parameters:shareParams
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error)
+     {
+         // 回调处理....
+         switch (state)
+         {
+             case SSDKResponseStateSuccess:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                     message:@"🐰谢谢您的分享🐰"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             case SSDKResponseStateFail:
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                 message:[NSString stringWithFormat:@"%@",error]
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+                 [alert show];
+                 break;
+             }
+             default:
+                 break;
+         }
+     }];
+}
+
+- (void)shareToWeixinTimeline{
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    
+    [shareParams SSDKSetupWeChatParamsByText:@"🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
+                                       title:@"[App推荐]稳定好用的VPN"
+                                         url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
+                                  thumbImage:[UIImage imageNamed:THUMB_IMAGE]
+                                       image:[UIImage imageNamed:SHARE_IMAGE]
+                                musicFileURL:nil
+                                     extInfo:nil
+                                    fileData:nil
+                                emoticonData:nil
+                                        type:SSDKContentTypeImage
+                          forPlatformSubType:SSDKPlatformSubTypeWechatTimeline];
+    
+    //分享事件
+    [ShareSDK share:SSDKPlatformSubTypeWechatTimeline parameters:shareParams
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error)
+     {
+         // 回调处理....
+         switch (state)
+         {
+             case SSDKResponseStateSuccess:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                     message:@"🐰谢谢您的分享🐰"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             case SSDKResponseStateFail:
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                 message:[NSString stringWithFormat:@"%@",error]
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+                 [alert show];
+                 break;
+             }
+             default:
+                 break;
+         }
+     }];
+}
+
+- (void)shareToQQ{
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupQQParamsByText:@"🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
+                                   title:@"[App推荐]稳定好用的VPN"
+                                     url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
+                              thumbImage:[UIImage imageNamed:THUMB_IMAGE]
+                                   image:[UIImage imageNamed:SHARE_IMAGE]
+                                    type:SSDKContentTypeImage
+                      forPlatformSubType:SSDKPlatformSubTypeQQFriend];
+    
+    //分享事件
+    [ShareSDK share:SSDKPlatformSubTypeQQFriend parameters:shareParams
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error)
+     {
+         // 回调处理....
+         switch (state)
+         {
+             case SSDKResponseStateSuccess:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                     message:@"🐰谢谢您的分享🐰"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             case SSDKResponseStateFail:
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                 message:[NSString stringWithFormat:@"%@",error]
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+                 [alert show];
+                 break;
+             }
+             default:
+                 break;
+         }
+     }];
+    
+}
+
+- (void)shareToWeibo{
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupSinaWeiboShareParamsByText:@"🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
+                                               title:@"[App推荐]稳定好用的VPN"
+                                               image:[UIImage imageNamed:SHARE_IMAGE]
+                                                 url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
+                                            latitude:0
+                                           longitude:0
+                                            objectID:nil
+                                                type:SSDKContentTypeAuto];
+    
+    
+    //分享事件
+    [ShareSDK share:SSDKPlatformTypeSinaWeibo parameters:shareParams
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error)
+     {
+         // 回调处理....
+         switch (state)
+         {
+             case SSDKResponseStateSuccess:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                     message:@"🐰谢谢您的分享🐰"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             case SSDKResponseStateFail:
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                 message:[NSString stringWithFormat:@"%@",error]
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+                 [alert show];
+                 break;
+             }
+             default:
+                 break;
+         }
+     }];
+}
+
+- (void)shareToMail{
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupShareParamsByText:@"给你推荐一个苹果手机上使用的VPN软件 \n🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
+                                     images:[UIImage imageNamed:SHARE_IMAGE]
+                                        url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
+                                      title:@"[App推荐]稳定好用的VPN"
+                                       type:SSDKContentTypeAuto];
+    
+    //分享事件
+    [ShareSDK share:SSDKPlatformTypeMail parameters:shareParams
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error)
+     {
+         // 回调处理....
+         switch (state)
+         {
+             case SSDKResponseStateSuccess:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                     message:@"🐰谢谢您的分享🐰"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             case SSDKResponseStateFail:
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                 message:[NSString stringWithFormat:@"%@",error]
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+                 [alert show];
+                 break;
+             }
+             default:
+                 break;
+         }
+     }];
+}
+
+- (void)shareToSMS{
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupShareParamsByText:@"给你推荐一个苹果手机上使用的VPN软件 \n🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
+                                     images:[UIImage imageNamed:SHARE_IMAGE]
+                                        url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
+                                      title:@"[App推荐]稳定好用的VPN"
+                                       type:SSDKContentTypeAuto];
+    
+    //分享事件
+    [ShareSDK share:SSDKPlatformTypeSMS parameters:shareParams
+     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error)
+     {
+         // 回调处理....
+         switch (state)
+         {
+             case SSDKResponseStateSuccess:
+             {
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                     message:@"🐰谢谢您的分享🐰"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"确定"
+                                                           otherButtonTitles:nil];
+                 [alertView show];
+                 break;
+             }
+             case SSDKResponseStateFail:
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                 message:[NSString stringWithFormat:@"%@",error]
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+                 [alert show];
+                 break;
+             }
+             default:
+                 break;
+         }
+     }];
+}
+
+- (void)showPopMenuViewWithMenuSelectedBlock:(MenuSelectedBlock)block {
+    if (!_popMenu) {
+        
+        NSArray *imgNames = @[@"more_wechat", @"more_moments", @"more_sina", @"more_qq", @"more_link", @"more_collection"];
+        NSArray *titles = @[@"微信", @"朋友圈", @"微博", @"QQ", @"邮件", @"短信"];
+        NSArray *colors = @[[UIColor colorWithRGBHex:0x70E08D],
+                            [UIColor colorWithRGBHex:0x70E08D],
+                            [UIColor colorWithRGBHex:0xFF8467],
+                            [UIColor colorWithRGBHex:0x49AFD6],
+                            [UIColor colorWithRGBHex:0x659AD9],
+                            [UIColor colorWithRGBHex:0xF6CC41]];
+        NSMutableArray *items = [NSMutableArray arrayWithCapacity:imgNames.count];
+        for (NSInteger i = 0; i < imgNames.count; i++) {
+            /*
+             BOOL test = [WXApi isWXAppInstalled];
+             BOOL test1 = [WXApi isWXAppSupportApi];
+             BOOL test2 = [WeiboSDK isWeiboAppInstalled];
+             BOOL test3 = [WeiboSDK isCanSSOInWeiboApp];
+             BOOL test4 = [WeiboSDK isCanShareInWeiboAPP];
+             if (i == 1 || i == 0)
+             {
+             if (!([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]))
+             {
+             continue;
+             }
+             }
+             
+             if (i == 2)
+             {
+             if (!([WeiboSDK isWeiboAppInstalled] && [WeiboSDK isCanSSOInWeiboApp] && [WeiboSDK isCanShareInWeiboAPP]))
+             {
+             continue;
+             }
+             }*/
+            MenuItem *item = [[MenuItem alloc] initWithTitle:titles[i] iconName:imgNames[i] glowColor:colors[i] index:i];
+            [items addObject:item];
+        }
+        
+        _popMenu = [[PopMenu alloc] initWithFrame:kKeyWindow.bounds items:items];
+        _popMenu.menuAnimationType = kPopMenuAnimationTypeSina;
+        _popMenu.perRowItemCount = 1;
+        _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
+            if (block) {
+                block((MLBPopMenuType)selectedItem.index);
+            }
+        };
+    }
+    
+    [_popMenu showMenuAtView:kKeyWindow];
 }
 - (UIColor*)popOverTintColor
 {

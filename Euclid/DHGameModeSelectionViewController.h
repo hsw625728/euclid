@@ -10,6 +10,17 @@
 #import <UIKit/UIKit.h>
 #import "DHGameModeSelectionButton.h"
 
+typedef NS_ENUM(NSUInteger, MLBPopMenuType) {
+    MLBPopMenuTypeWechatFrined,// 微信好友
+    MLBPopMenuTypeMoments,// 朋友圈
+    MLBPopMenuTypeWeibo,// 微博
+    MLBPopMenuTypeQQ,// QQ
+    MLBPopMenuTypeMail,// 邮件
+    MLBPopMenuTypeSMS,// 短信（iMessage）
+};
+
+typedef void(^MenuSelectedBlock)(MLBPopMenuType menuType);
+
 @interface DHGameModeSelectionViewController : UIViewController
 
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *layoutConstraintsPortrait;
@@ -39,5 +50,6 @@
 
 - (void)showLeaderboards:(id)sender;
 - (void)closeSettings:(UIStoryboardSegue *)unwindSegue;
+- (void)showPopMenuViewWithMenuSelectedBlock:(MenuSelectedBlock)block;
 
 @end
