@@ -642,7 +642,7 @@
                                             latitude:0
                                            longitude:0
                                             objectID:nil
-                                                type:SSDKContentTypeAuto];
+                                                type:SSDKContentTypeImage];
     
     
     //分享事件
