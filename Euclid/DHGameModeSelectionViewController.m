@@ -20,6 +20,7 @@
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 #import "PopMenu.h"
 #import "UIColor+MLBUtilities.h"
+#import "UIDevice+IdentifierAddition.h"
 
 @interface DHGameModeSelectionViewController () <DHPopoverViewDelegate>
 @property (strong, nonatomic) PopMenu *popMenu;
@@ -466,9 +467,9 @@
             case MLBPopMenuTypeMoments:
                 [self shareToWeixinTimeline];
                 break;
-            case MLBPopMenuTypeWeibo:
+            /*case MLBPopMenuTypeWeibo:
                 [self shareToWeibo];
-                break;
+                break;*/
             case MLBPopMenuTypeQQ:
                 [self shareToQQ];
                 break;
@@ -486,15 +487,18 @@
     
 }
 
-#define SHARE_URL_MENGYOUTU @"http://mengyoutu.cn/euclid/ecuref?usr_code=31584442"
+#define SHARE_URL_MENGYOUTU_FORMAT @"http://mengyoutu.cn/euclid/ecuref?usr_code=%@"
+#define SHARE_TITLE @"[App推荐]史上最好玩的几何App"
+#define SHARE_TEXT @"🍌欧几里得    🍎尺规作图\n🍊经典案例    🍉超酷操作\n➡️➡️点击进入下载页面⬅️⬅️"
 #define THUMB_IMAGE @"EuclidLogo"
 #define SHARE_IMAGE @"EuclidLogo"
 
+#define SHARE_URL_MENGYOUTU [NSString stringWithFormat:SHARE_URL_MENGYOUTU_FORMAT, [[UIDevice currentDevice] uniqueDeviceIdentifier]]
 - (void)shareToWeixin{
     //参数设定
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupWeChatParamsByText:@"🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
-                                       title:@"[App推荐]稳定好用的VPN"
+    [shareParams SSDKSetupWeChatParamsByText:SHARE_TEXT
+                                       title:SHARE_TITLE
                                          url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
                                   thumbImage:[UIImage imageNamed:THUMB_IMAGE]
                                        image:[UIImage imageNamed:SHARE_IMAGE]
@@ -506,6 +510,7 @@
                           forPlatformSubType:SSDKPlatformSubTypeWechatSession];
     
     //分享事件
+    
     [ShareSDK share:SSDKPlatformSubTypeWechatSession parameters:shareParams
      onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error)
      {
@@ -542,8 +547,8 @@
     
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
     
-    [shareParams SSDKSetupWeChatParamsByText:@"🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
-                                       title:@"[App推荐]稳定好用的VPN"
+    [shareParams SSDKSetupWeChatParamsByText:SHARE_TEXT
+                                       title:SHARE_TITLE
                                          url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
                                   thumbImage:[UIImage imageNamed:THUMB_IMAGE]
                                        image:[UIImage imageNamed:SHARE_IMAGE]
@@ -551,7 +556,7 @@
                                      extInfo:nil
                                     fileData:nil
                                 emoticonData:nil
-                                        type:SSDKContentTypeImage
+                                        type:SSDKContentTypeApp
                           forPlatformSubType:SSDKPlatformSubTypeWechatTimeline];
     
     //分享事件
@@ -590,12 +595,12 @@
 - (void)shareToQQ{
     
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupQQParamsByText:@"🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
-                                   title:@"[App推荐]稳定好用的VPN"
+    [shareParams SSDKSetupQQParamsByText:SHARE_TEXT
+                                   title:SHARE_TITLE
                                      url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
                               thumbImage:[UIImage imageNamed:THUMB_IMAGE]
                                    image:[UIImage imageNamed:SHARE_IMAGE]
-                                    type:SSDKContentTypeImage
+                                    type:SSDKContentTypeWebPage
                       forPlatformSubType:SSDKPlatformSubTypeQQFriend];
     
     //分享事件
@@ -635,8 +640,8 @@
 - (void)shareToWeibo{
     
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupSinaWeiboShareParamsByText:@"🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
-                                               title:@"[App推荐]稳定好用的VPN"
+    [shareParams SSDKSetupSinaWeiboShareParamsByText:SHARE_TEXT
+                                               title:SHARE_TITLE
                                                image:[UIImage imageNamed:SHARE_IMAGE]
                                                  url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
                                             latitude:0
@@ -681,10 +686,10 @@
 - (void)shareToMail{
     
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupShareParamsByText:@"给你推荐一个苹果手机上使用的VPN软件 \n🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
+    [shareParams SSDKSetupShareParamsByText:@"🍌欧几里得    🍎尺规作图\n🍊经典案例    🍉超酷操作\n➡️➡️苹果商店搜索：几何大师⬅️⬅️"
                                      images:[UIImage imageNamed:SHARE_IMAGE]
                                         url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
-                                      title:@"[App推荐]稳定好用的VPN"
+                                      title:SHARE_TITLE
                                        type:SSDKContentTypeAuto];
     
     //分享事件
@@ -723,10 +728,10 @@
 - (void)shareToSMS{
     
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupShareParamsByText:@"给你推荐一个苹果手机上使用的VPN软件 \n🍌一键连接    🍎界面简洁\n🍊稳定高速    🍉不限流量\n➡️➡️点击进入下载页面⬅️⬅️"
+    [shareParams SSDKSetupShareParamsByText:@"🍌欧几里得    🍎尺规作图\n🍊经典案例    🍉超酷操作\n➡️➡️苹果商店搜索：几何大师⬅️⬅️"
                                      images:[UIImage imageNamed:SHARE_IMAGE]
                                         url:[NSURL URLWithString:SHARE_URL_MENGYOUTU]
-                                      title:@"[App推荐]稳定好用的VPN"
+                                      title:SHARE_TITLE
                                        type:SSDKContentTypeAuto];
     
     //分享事件
@@ -765,11 +770,11 @@
 - (void)showPopMenuViewWithMenuSelectedBlock:(MenuSelectedBlock)block {
     if (!_popMenu) {
         
-        NSArray *imgNames = @[@"more_wechat", @"more_moments", @"more_sina", @"more_qq", @"more_link", @"more_collection"];
-        NSArray *titles = @[@"微信", @"朋友圈", @"微博", @"QQ", @"邮件", @"短信"];
+        NSArray *imgNames = @[@"more_wechat", @"more_moments",/* @"more_sina",*/ @"more_qq", @"more_link", @"more_collection"];
+        NSArray *titles = @[@"微信", @"朋友圈", /*@"微博",*/ @"QQ", @"邮件", @"短信"];
         NSArray *colors = @[[UIColor colorWithRGBHex:0x70E08D],
                             [UIColor colorWithRGBHex:0x70E08D],
-                            [UIColor colorWithRGBHex:0xFF8467],
+                            //[UIColor colorWithRGBHex:0xFF8467],
                             [UIColor colorWithRGBHex:0x49AFD6],
                             [UIColor colorWithRGBHex:0x659AD9],
                             [UIColor colorWithRGBHex:0xF6CC41]];

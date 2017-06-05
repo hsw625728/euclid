@@ -25,6 +25,8 @@
 		587044BB1ED973B900A541E5 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044B81ED973B900A541E5 /* DZNSegmentedControl.m */; };
 		587044BF1ED973C900A541E5 /* AAPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044BD1ED973C900A541E5 /* AAPullToRefresh.m */; };
 		587044C21ED973D200A541E5 /* MLBTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 587044C01ED973D200A541E5 /* MLBTapImageView.m */; };
+		587045331EE5431600A541E5 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5870452F1EE5431600A541E5 /* UIDevice+IdentifierAddition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		587045341EE5431600A541E5 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 587045311EE5431600A541E5 /* NSString+MD5Addition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		681C8886198D0BF1005307F5 /* DHSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681C8885198D0BF1005307F5 /* DHSettingsTableViewController.m */; };
 		681C8889198D4D02005307F5 /* DHLevelSelection2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681C8888198D4D02005307F5 /* DHLevelSelection2ViewController.m */; };
 		681C888C198D4FA2005307F5 /* DHLevelSelection2LevelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 681C888B198D4FA2005307F5 /* DHLevelSelection2LevelCell.m */; };
@@ -163,6 +165,10 @@
 		587044BE1ED973C900A541E5 /* AAPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPullToRefresh.h; path = Vendors/AAPullToRefresh/AAPullToRefresh.h; sourceTree = "<group>"; };
 		587044C01ED973D200A541E5 /* MLBTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLBTapImageView.m; path = Vendors/MLBTapImageView/MLBTapImageView.m; sourceTree = "<group>"; };
 		587044C11ED973D200A541E5 /* MLBTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLBTapImageView.h; path = Vendors/MLBTapImageView/MLBTapImageView.h; sourceTree = "<group>"; };
+		5870452F1EE5431600A541E5 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+IdentifierAddition.m"; path = "Vendors/UniqueID/UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		587045301EE5431600A541E5 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+IdentifierAddition.h"; path = "Vendors/UniqueID/UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		587045311EE5431600A541E5 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5Addition.m"; path = "Vendors/UniqueID/NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		587045321EE5431600A541E5 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5Addition.h"; path = "Vendors/UniqueID/NSString+MD5Addition.h"; sourceTree = "<group>"; };
 		681C8884198D0BF1005307F5 /* DHSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSettingsTableViewController.h; sourceTree = "<group>"; };
 		681C8885198D0BF1005307F5 /* DHSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSettingsTableViewController.m; sourceTree = "<group>"; };
 		681C8887198D4D02005307F5 /* DHLevelSelection2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHLevelSelection2ViewController.h; sourceTree = "<group>"; };
@@ -349,6 +355,7 @@
 		5870447C1ED96F0800A541E5 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				5870452E1EE542FB00A541E5 /* UniqueID */,
 				587044A61ED9738400A541E5 /* ParallaxTableViewHeader */,
 				587044A51ED9737B00A541E5 /* MZTimerLabel */,
 				587044A41ED9737000A541E5 /* MZSelectableLabel */,
@@ -461,6 +468,17 @@
 				587044AA1ED9739900A541E5 /* ParallaxHeaderView.h */,
 			);
 			name = ParallaxTableViewHeader;
+			sourceTree = "<group>";
+		};
+		5870452E1EE542FB00A541E5 /* UniqueID */ = {
+			isa = PBXGroup;
+			children = (
+				5870452F1EE5431600A541E5 /* UIDevice+IdentifierAddition.m */,
+				587045301EE5431600A541E5 /* UIDevice+IdentifierAddition.h */,
+				587045311EE5431600A541E5 /* NSString+MD5Addition.m */,
+				587045321EE5431600A541E5 /* NSString+MD5Addition.h */,
+			);
+			name = UniqueID;
 			sourceTree = "<group>";
 		};
 		681C888D198ECDF8005307F5 /* Custom view transitions */ = {
@@ -793,8 +811,7 @@
 						TestTargetID = 68F0A9C319587AEC00A97B86;
 					};
 					68F0A9C319587AEC00A97B86 = {
-						DevelopmentTeam = 887CVK63XR;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -927,6 +944,7 @@
 				587044BF1ED973C900A541E5 /* AAPullToRefresh.m in Sources */,
 				681C88B419921CAE005307F5 /* DHTranslateSegmentTool.m in Sources */,
 				686014DE1969DFE70004DD1E /* DHLevelCircleCenter.m in Sources */,
+				587045331EE5431600A541E5 /* UIDevice+IdentifierAddition.m in Sources */,
 				68E3CABA19A339F10018851F /* DHPopoverView.m in Sources */,
 				68F0A9DE19587AEC00A97B86 /* DHGeometryViewController.m in Sources */,
 				68F0AA3C1961DE5100A97B86 /* DHLevelTutorial.m in Sources */,
@@ -989,6 +1007,7 @@
 				68F0AA1C195B256B00A97B86 /* DHLevelSquare.m in Sources */,
 				68F0AA18195A96D500A97B86 /* DHLevelEquiTri.m in Sources */,
 				684708AF1967496600C1FA83 /* DHLevelParallellLines.m in Sources */,
+				587045341EE5431600A541E5 /* NSString+MD5Addition.m in Sources */,
 				686622401972A7AB004DCFAC /* DHGameModeSelectionViewController.m in Sources */,
 				68E3CAB2199F138F0018851F /* NSUserDefaults+Encryption.m in Sources */,
 				587044871ED96F2000A541E5 /* MenuButton.m in Sources */,
@@ -1159,7 +1178,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 887CVK63XR;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Euclid/Euclid-Prefix.pch";
 				INFOPLIST_FILE = "Euclid/Euclid-Info.plist";
@@ -1179,7 +1198,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 887CVK63XR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Euclid/Euclid-Prefix.pch";
@@ -1187,8 +1206,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.euclid;
 				PRODUCT_NAME = "Euclid: The Game";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "4ef98042-959e-4c7b-bb52-1eef64b881c6";
+				PROVISIONING_PROFILE_SPECIFIER = eculid;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
