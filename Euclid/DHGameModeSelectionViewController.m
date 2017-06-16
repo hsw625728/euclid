@@ -413,6 +413,7 @@
         [popOverView addButtonWithTitle:@"排行榜 & 成就"];
         [popOverView addButtonWithTitle:@"关于"];
         [popOverView addButtonWithTitle:@"推广赚佣金"];
+        [popOverView addButtonWithTitle:@"填写邀请人"];
         [popOverView show];
         
         _popoverMenu = popOverView;
@@ -449,11 +450,55 @@
         case 3:
             [self shareMeToFriend];
             break;
+        case 4:
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"输入邀请人" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+            UITextField *txtName = [alert textFieldAtIndex:0];
+            txtName.placeholder = @"填写邀请人的编码";
+            [alert show];
+        }
+            break;
         default:
             break;
     }
     
     [self hidePopoverMenu];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        UITextField *txt = [alertView textFieldAtIndex:0];
+        
+        NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        //NSString *scoreStr = [NSString stringWithFormat:@"%i", [AppDelegate highScore]];
+        //AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        
+        
+        
+        NSString *post = [NSString stringWithFormat:@"deviceID=%@&fcode=%@&payed=%@",idfv, [txt text], @"no"];
+        NSLog(@"POST_PARAM  | %@", post);
+        NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:@"http://mengyoutu.cn/euclid/euclidrecord.php"]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        
+        NSURLResponse *response;
+        NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
+        NSLog(@"& API  | %@", theReply);
+    }
+    else
+    {
+        
+    }
+    
+    
 }
 - (void)shareMeToFriend
 {

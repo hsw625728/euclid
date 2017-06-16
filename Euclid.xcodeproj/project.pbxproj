@@ -811,7 +811,8 @@
 						TestTargetID = 68F0A9C319587AEC00A97B86;
 					};
 					68F0A9C319587AEC00A97B86 = {
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 887CVK63XR;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -1178,7 +1179,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 887CVK63XR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Euclid/Euclid-Prefix.pch";
 				INFOPLIST_FILE = "Euclid/Euclid-Info.plist";
@@ -1198,7 +1199,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 887CVK63XR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Euclid/Euclid-Prefix.pch";
@@ -1206,8 +1207,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.euclid;
 				PRODUCT_NAME = "Euclid: The Game";
-				PROVISIONING_PROFILE = "4ef98042-959e-4c7b-bb52-1eef64b881c6";
-				PROVISIONING_PROFILE_SPECIFIER = eculid;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
